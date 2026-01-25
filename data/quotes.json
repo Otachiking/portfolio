@@ -1,0 +1,51 @@
+[
+  {
+    "id": "q-100-meters-1",
+    "text": "In the end, whether you have talent or passion, you'll still have to give it your all.",
+    "author": "Ramon Arroyo",
+    "source": "100 Meters",
+    "context": "Film"
+  },
+  {
+    "id": "q-arcane-vander",
+    "text": "You’ve got a good heart. Don’t ever lose it.",
+    "author": "Vander",
+    "source": "Arcane",
+    "context": "Season 1 Episode 2"
+  },
+  {
+    "id": "q-arcane-viktor",
+    "text": "When you’re going to change the world, don’t ask for permission.",
+    "author": "Viktor",
+    "source": "Arcane",
+    "context": "Season 1 Episode 2"
+  },
+  {
+    "id": "q-arcane-caitlyn",
+    "text": "I'm an excellent shot.",
+    "author": "Caitlyn Kiramman",
+    "source": "Arcane",
+    "context": "Season 1 Episode 5"
+  },
+  {
+    "id": "q-mary-oliver-1",
+    "text": "As long as you dancing, you can break the rules. Sometimes breaking the rules mean extending the rules. Sometimes, there are no rules.",
+    "author": "Mary Oliver",
+    "source": "Poetry",
+    "context": "Essay / Poem"
+  },
+  {
+    "id": "q-problem-solving",
+    "text": "If you can’t explain it simply, you don’t understand it well enough.",
+    "author": "Albert Einstein",
+    "source": "Attributed Quote",
+    "context": ""
+  },
+  {
+    "id": "q-learning",
+    "text": "The best way to predict the future is to build it.",
+    "author": "Alan Kay",
+    "source": "Computer Science",
+    "context": ""
+  }
+]

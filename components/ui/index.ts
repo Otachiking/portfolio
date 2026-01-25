@@ -4,3 +4,5 @@ export { Pill } from './Pill';
 export { Avatar } from './Avatar';
 export { DarkModeToggle } from './DarkModeToggle';
 export { CardProject } from './CardProject';
+export { QuoteSection } from './QuoteSection';
+export { AccordionSection } from './AccordionSection';

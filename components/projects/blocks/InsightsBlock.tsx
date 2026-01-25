@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 interface InsightsBlockProps {
   content: string;
 }
@@ -6,7 +8,7 @@ export function InsightsBlock({ content }: InsightsBlockProps) {
   // Parse markdown-like content
   const parseContent = (text: string) => {
     const lines = text.split('\n');
-    const elements: JSX.Element[] = [];
+    const elements: ReactElement[] = [];
     let currentParagraph: string[] = [];
     let inList = false;
     let listItems: string[] = [];

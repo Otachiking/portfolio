@@ -4,3 +4,5 @@ export { GalleryBlock } from './GalleryBlock';
 export { ProcessBlock } from './ProcessBlock';
 export { OutcomeBlock } from './OutcomeBlock';
 export { InsightsBlock } from './InsightsBlock';
+export { VideoBlock } from './VideoBlock';
+export { DemoBlock } from './DemoBlock';

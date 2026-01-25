@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+
 interface ProcessBlockProps {
   content: string;
 }
@@ -6,7 +8,7 @@ export function ProcessBlock({ content }: ProcessBlockProps) {
   // Parse markdown-like content with bold headers
   const parseContent = (text: string) => {
     const lines = text.split('\n');
-    const elements: JSX.Element[] = [];
+    const elements: ReactElement[] = [];
     let currentParagraph: string[] = [];
 
     lines.forEach((line, index) => {

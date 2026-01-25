@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { Header, Footer } from '@/components/ui';
+import { Header, Footer, QuoteSection } from '@/components/ui';
+import { getQuotes } from '@/lib';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -23,6 +24,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const quotes = getQuotes();
+
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
@@ -60,6 +63,7 @@ export default function RootLayout({
           {children}
         </main>
 
+        <QuoteSection quotes={quotes} />
         <Footer />
       </body>
     </html>

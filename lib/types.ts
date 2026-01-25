@@ -18,13 +18,15 @@ export interface GalleryImage {
 }
 
 export interface Section {
-  type: 'overview' | 'process' | 'image' | 'gallery' | 'outcome' | 'insights';
+  type: 'overview' | 'process' | 'image' | 'gallery' | 'outcome' | 'insights' | 'video' | 'demo';
+  title?: string;
   content?: string;
   src?: string;
   alt?: string;
   caption?: string;
   images?: GalleryImage[];
   metrics?: Metric[];
+  url?: string; // For video embeds (YouTube) or demo iframe URLs
 }
 
 export interface ProjectFrontmatter {
@@ -47,3 +49,11 @@ export interface Project extends ProjectFrontmatter {
 export type Category = 'All' | 'UI/UX' | 'Data & ML/AI' | 'Web Dev';
 
 export const CATEGORIES: Category[] = ['All', 'UI/UX', 'Data & ML/AI', 'Web Dev'];
+
+export interface Quote {
+  id: string;
+  text: string;
+  author: string;
+  source: string;
+  context?: string;
+}

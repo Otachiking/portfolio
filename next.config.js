@@ -5,6 +5,10 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
+  // Generate 404.html for static hosting
+  generateBuildId: async () => {
+    return 'build-' + Date.now();
+  },
 };
 
 module.exports = nextConfig;

@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import type { Project, Contributor } from './types';
+import type { Project, Contributor, Quote } from './types';
 
 const projectsDirectory = path.join(process.cwd(), 'data/projects');
 const contributorsPath = path.join(process.cwd(), 'data/contributors.json');
+const quotesPath = path.join(process.cwd(), 'data/quotes.json');
 
 export function getContributors(): Contributor[] {
   const fileContents = fs.readFileSync(contributorsPath, 'utf8');
@@ -91,4 +92,9 @@ export function getProjectsByCategory(category: string): Project[] {
 export function getBestProjects(count: number = 3): Project[] {
   const allProjects = getAllProjects();
   return allProjects.slice(0, count);
+}
+
+export function getQuotes(): Quote[] {
+  const fileContents = fs.readFileSync(quotesPath, 'utf8');
+  return JSON.parse(fileContents);
 }
