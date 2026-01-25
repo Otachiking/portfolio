@@ -60,8 +60,11 @@ export function ProjectRenderer({ sections, project, contributors }: ProjectRend
       return orderA - orderB;
     });
 
+  // Track index for alternating colors across all accordions
+  let accordionIndex = 0;
+
   return (
-    <div className="space-y-4">
+    <div className="space-y-2">
       {sortedSections.map((section, index) => {
         const key = `${section.type}-${index}`;
         const config = SECTION_CONFIG[section.type] || { 
@@ -72,11 +75,15 @@ export function ProjectRenderer({ sections, project, contributors }: ProjectRend
         const sectionContent = renderSectionContent(section);
         if (!sectionContent) return null;
 
+        const variant = accordionIndex % 2 === 0 ? 'primary' : 'secondary';
+        accordionIndex++;
+
         return (
           <AccordionSection
             key={key}
             title={section.title || config.title}
             defaultOpen={config.defaultOpen}
+            variant={variant}
           >
             {sectionContent}
           </AccordionSection>
@@ -85,7 +92,11 @@ export function ProjectRenderer({ sections, project, contributors }: ProjectRend
 
       {/* Team Section - Always at the end if contributors exist */}
       {contributors.length > 0 && (
-        <AccordionSection title="Team" defaultOpen={false}>
+        <AccordionSection 
+          title="Team" 
+          defaultOpen={false}
+          variant={accordionIndex++ % 2 === 0 ? 'primary' : 'secondary'}
+        >
           <div className="space-y-4">
             <h3 className="text-sm font-medium uppercase tracking-wide text-text/60">
               Contributors
@@ -129,7 +140,11 @@ export function ProjectRenderer({ sections, project, contributors }: ProjectRend
 
       {/* Tags Section */}
       {project.tags && project.tags.length > 0 && (
-        <AccordionSection title="Tags & Technologies" defaultOpen={false}>
+        <AccordionSection 
+          title="Tags & Technologies" 
+          defaultOpen={false}
+          variant={accordionIndex % 2 === 0 ? 'primary' : 'secondary'}
+        >
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <span

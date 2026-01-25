@@ -6,7 +6,7 @@ interface ImageBlockProps {
 
 export function ImageBlock({ src, alt, caption }: ImageBlockProps) {
   return (
-    <figure className="my-12" role="figure" aria-labelledby={caption ? 'image-caption' : undefined}>
+    <figure role="figure" aria-labelledby={caption ? 'image-caption' : undefined}>
       <div className="overflow-hidden border border-text/10 bg-text/5">
         <img
           src={src}

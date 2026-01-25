@@ -35,6 +35,7 @@ export function getAllProjects(): Project[] {
         contributors: data.contributors || [],
         tags: data.tags || [],
         sections: data.sections || [],
+        featured: data.featured || false,
       } as Project;
     });
 
@@ -66,6 +67,7 @@ export function getProjectBySlug(slug: string): Project | null {
         contributors: data.contributors || [],
         tags: data.tags || [],
         sections: data.sections || [],
+        featured: data.featured || false,
         content,
       } as Project;
     }
@@ -91,7 +93,10 @@ export function getProjectsByCategory(category: string): Project[] {
 
 export function getBestProjects(count: number = 3): Project[] {
   const allProjects = getAllProjects();
-  return allProjects.slice(0, count);
+  // Prioritize featured projects, then sort by date
+  const featuredProjects = allProjects.filter((p) => p.featured);
+  const otherProjects = allProjects.filter((p) => !p.featured);
+  return [...featuredProjects, ...otherProjects].slice(0, count);
 }
 
 export function getQuotes(): Quote[] {

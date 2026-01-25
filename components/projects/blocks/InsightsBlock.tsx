@@ -71,23 +71,6 @@ export function InsightsBlock({ content }: InsightsBlockProps) {
   };
 
   return (
-    <section
-      className="mb-12 border border-text/10 bg-card-bg p-8"
-      aria-labelledby="insights-heading"
-    >
-      <h2
-        id="insights-heading"
-        className="heading-2 mb-6 flex items-center gap-3"
-      >
-        <span
-          className="flex h-8 w-8 items-center justify-center bg-secondary text-white"
-          aria-hidden="true"
-        >
-          💡
-        </span>
-        Key Insights
-      </h2>
-      <div>{parseContent(content)}</div>
-    </section>
+    <div>{parseContent(content)}</div>
   );
 }

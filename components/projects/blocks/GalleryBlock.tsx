@@ -10,15 +10,11 @@ interface GalleryBlockProps {
 
 export function GalleryBlock({ images }: GalleryBlockProps) {
   return (
-    <section className="my-12" aria-labelledby="gallery-heading">
-      <h2 id="gallery-heading" className="sr-only">
-        Project Gallery
-      </h2>
-      <div
-        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-        role="list"
-        aria-label="Project images"
-      >
+    <div
+      className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+      role="list"
+      aria-label="Project images"
+    >
         {images.map((image, index) => (
           <figure
             key={index}
@@ -40,7 +36,6 @@ export function GalleryBlock({ images }: GalleryBlockProps) {
             )}
           </figure>
         ))}
-      </div>
-    </section>
+    </div>
   );
 }

@@ -8,6 +8,7 @@ interface AccordionSectionProps {
   defaultOpen?: boolean;
   children: React.ReactNode;
   className?: string;
+  variant?: 'primary' | 'secondary';
 }
 
 export function AccordionSection({
@@ -15,6 +16,7 @@ export function AccordionSection({
   defaultOpen = false,
   children,
   className,
+  variant = 'primary',
 }: AccordionSectionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const contentId = useId();
@@ -34,10 +36,19 @@ export function AccordionSection({
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-controls={contentId}
-          className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left transition-colors hover:bg-text/5 sm:px-6"
+          className="flex w-full items-center justify-between gap-4 px-4 py-3 text-left transition-colors hover:bg-text/5 sm:px-6"
         >
-          <span className="text-lg font-semibold text-text">
-            {title}
+          <span className="flex items-center gap-3">
+            <span
+              className={clsx(
+                'h-5 w-1',
+                variant === 'primary' ? 'bg-primary' : 'bg-secondary'
+              )}
+              aria-hidden="true"
+            />
+            <span className="text-lg font-semibold text-text">
+              {title}
+            </span>
           </span>
           <span
             aria-hidden="true"
@@ -74,7 +85,7 @@ export function AccordionSection({
           isOpen ? 'animate-accordion-down' : 'animate-accordion-up'
         )}
       >
-        <div className="border-t border-text/10 px-4 py-6 sm:px-6">
+        <div className="border-t border-text/10 px-4 py-4 sm:px-6">
           {children}
         </div>
       </div>

@@ -62,7 +62,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   );
 
   return (
-    <article className="py-8 sm:py-12" aria-labelledby="project-title">
+    <article className="pt-16 pb-8 sm:pt-24 sm:pb-12" aria-labelledby="project-title">
       <div className="container-main">
         {/* Breadcrumb */}
         <nav className="mb-6" aria-label="Breadcrumb">
@@ -144,7 +144,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </header>
 
         {/* Accordion Sections */}
-        <div className="space-y-4">
+        <div className="space-y-2">
           <ProjectRenderer
             sections={project.sections}
             project={project}

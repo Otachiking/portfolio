@@ -40,6 +40,7 @@ export interface ProjectFrontmatter {
   contributors: string[];
   tags: string[];
   sections: Section[];
+  featured?: boolean;
 }
 
 export interface Project extends ProjectFrontmatter {

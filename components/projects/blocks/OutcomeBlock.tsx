@@ -10,18 +10,11 @@ interface OutcomeBlockProps {
 
 export function OutcomeBlock({ metrics, content }: OutcomeBlockProps) {
   return (
-    <section className="mb-12" aria-labelledby="outcome-heading">
-      <h2
-        id="outcome-heading"
-        className="heading-2 mb-6 border-l-4 border-primary pl-4"
-      >
-        Outcome
-      </h2>
-
+    <div>
       {/* Metrics Grid */}
       {metrics && metrics.length > 0 && (
         <div
-          className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
           role="list"
           aria-label="Project metrics"
         >
@@ -46,11 +39,11 @@ export function OutcomeBlock({ metrics, content }: OutcomeBlockProps) {
       {/* Content */}
       <div className="prose prose-lg max-w-none">
         {content.split('\n\n').map((paragraph, index) => (
-          <p key={index} className="mb-4 text-text/80">
+          <p key={index} className="mb-4 last:mb-0 text-text/80">
             {paragraph.trim()}
           </p>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

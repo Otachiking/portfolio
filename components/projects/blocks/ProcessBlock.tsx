@@ -70,14 +70,6 @@ export function ProcessBlock({ content }: ProcessBlockProps) {
   };
 
   return (
-    <section className="mb-12" aria-labelledby="process-heading">
-      <h2
-        id="process-heading"
-        className="heading-2 mb-6 border-l-4 border-secondary pl-4"
-      >
-        Process
-      </h2>
-      <div className="space-y-2">{parseContent(content)}</div>
-    </section>
+    <div className="space-y-2">{parseContent(content)}</div>
   );
 }
