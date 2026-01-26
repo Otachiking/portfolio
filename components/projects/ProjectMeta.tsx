@@ -81,9 +81,6 @@ export function ProjectMeta({ project, contributors }: ProjectMetaProps) {
                   <Avatar contributor={contributor} size="md" />
                   <div>
                     <p className="font-medium">{contributor.name}</p>
-                    {contributor.role && (
-                      <p className="text-sm text-text/60">{contributor.role}</p>
-                    )}
                   </div>
                 </div>
               ))}

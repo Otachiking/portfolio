@@ -6,7 +6,6 @@ import clsx from 'clsx';
 interface Contributor {
   id: string;
   name: string;
-  role?: string;
   linkedin?: string;
   photo?: string;
 }
@@ -139,16 +138,10 @@ export function Avatar({
           ref={popoverRef}
           id={`popover-${contributor.id}`}
           role="tooltip"
-          className="absolute bottom-full left-1/2 z-50 mb-2 -translate-x-1/2 whitespace-nowrap border border-text/10 bg-card-bg p-3 shadow-lg"
+          className="absolute top-full left-1/2 z-50 mt-2 -translate-x-1/2 whitespace-nowrap border border-text/10 bg-card-bg px-2 py-1 text-xs shadow-lg"
         >
-          <p className="font-semibold">{contributor.name}</p>
-          {contributor.role && (
-            <p className="text-sm text-text/70">{contributor.role}</p>
-          )}
-          {contributor.linkedin && (
-            <p className="mt-1 text-xs text-primary">Click to view LinkedIn ↗</p>
-          )}
-          <div className="absolute left-1/2 top-full -translate-x-1/2 border-8 border-transparent border-t-card-bg" />
+          <p className="font-medium text-text">{contributor.name}</p>
+          <div className="absolute left-1/2 bottom-full -translate-x-1/2 border-4 border-transparent border-b-card-bg" />
         </div>
       )}
     </div>

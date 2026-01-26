@@ -2,23 +2,33 @@
 title: "DVD Amazon Co-Purchases Network Analysis"
 slug: "amazon-network-analysis"
 date: "2025-12-01"
-category: "Data & ML/AI"
+category: "AI/ML & Data"
 project_type: "Academic Project"
 thumbnail: "/images/projects/amazon-network-thumb.jpg"
 excerpt: "Social Network Analysis of Amazon's DVD co-purchase patterns using NetworkX, featuring centrality metrics, clustering analysis, and an interactive web-based graph visualization."
 featured: true
 contributors:
+  - "muhammad-iqbal-rasyid"
   - "falah-akbar"
   - "sara-nur"
+techStack:
+  - "Python"
+  - "NetworkX"
+  - "D3.js"
+  - "Flask"
+links:
+  liveApp: "https://amazon-network-viz.vercel.app"
+  video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  github: "https://github.com/iqbalrasyid/amazon-network"
 tags:
-  - "Social Network Analysis"
+  - "SocialNetworkAnalysis"
   - "NetworkX"
   - "Python"
-  - "Graph Theory"
-  - "Data Visualization"
-  - "Community Detection"
-  - "Recommendation Systems"
-  - "Interactive Web App"
+  - "GraphTheory"
+  - "DataVisualization"
+  - "CommunityDetection"
+  - "RecommendationSystems"
+  - "InteractiveWebApp"
 sections:
   - type: "overview"
     content: |
@@ -27,7 +37,7 @@ sections:
       The project applied graph theory concepts including centrality measures, clustering coefficients, and community detection to uncover hidden patterns in product relationships. The findings were presented through an interactive web-based graph simulation that allows users to explore product connections and understand recommendation insights visually.
 
   - type: "video"
-    title: "Project Presentation"
+    title: "Video"
     url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 
   - type: "demo"

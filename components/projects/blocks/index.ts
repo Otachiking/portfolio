@@ -6,3 +6,4 @@ export { OutcomeBlock } from './OutcomeBlock';
 export { InsightsBlock } from './InsightsBlock';
 export { VideoBlock } from './VideoBlock';
 export { DemoBlock } from './DemoBlock';
+export { FeaturesBlock } from './FeaturesBlock';

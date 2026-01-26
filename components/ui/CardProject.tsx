@@ -91,23 +91,18 @@ export function CardProject({ project, contributors }: CardProjectProps) {
 
         {/* Contributors */}
         {projectContributors.length > 0 && (
-          <div className="flex items-center gap-2 border-t border-text/10 pt-4">
+          <div className="flex items-center border-t border-text/10 pt-4">
             <div
-              className="flex -space-x-2"
+              className="flex gap-1"
               role="list"
               aria-label="Contributors"
             >
-              {projectContributors.slice(0, 4).map((contributor) => (
+              {projectContributors.map((contributor) => (
                 <span key={contributor.id} role="listitem">
                   <Avatar contributor={contributor} size="sm" />
                 </span>
               ))}
             </div>
-            {projectContributors.length > 4 && (
-              <span className="text-xs text-text/50">
-                +{projectContributors.length - 4} more
-              </span>
-            )}
           </div>
         )}
       </div>

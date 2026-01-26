@@ -84,6 +84,15 @@
     text-wrap: balance;
   }
 
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Screen reader only utility */
   .sr-only {
     @apply absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0;

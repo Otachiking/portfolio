@@ -1,7 +1,6 @@
 export interface Contributor {
   id: string;
   name: string;
-  role?: string;
   linkedin?: string;
   photo?: string;
 }
@@ -18,7 +17,7 @@ export interface GalleryImage {
 }
 
 export interface Section {
-  type: 'overview' | 'process' | 'image' | 'gallery' | 'outcome' | 'insights' | 'video' | 'demo';
+  type: 'overview' | 'process' | 'image' | 'gallery' | 'outcome' | 'insights' | 'video' | 'demo' | 'features';
   title?: string;
   content?: string;
   src?: string;
@@ -27,6 +26,13 @@ export interface Section {
   images?: GalleryImage[];
   metrics?: Metric[];
   url?: string; // For video embeds (YouTube) or demo iframe URLs
+}
+
+export interface ProjectLinks {
+  liveApp?: string;
+  video?: string;
+  github?: string;
+  source?: string;
 }
 
 export interface ProjectFrontmatter {
@@ -39,6 +45,8 @@ export interface ProjectFrontmatter {
   excerpt: string;
   contributors: string[];
   tags: string[];
+  techStack?: string[];
+  links?: ProjectLinks;
   sections: Section[];
   featured?: boolean;
 }
@@ -47,9 +55,9 @@ export interface Project extends ProjectFrontmatter {
   content?: string;
 }
 
-export type Category = 'All' | 'UI/UX' | 'Data & ML/AI' | 'Web Dev';
+export type Category = 'All' | 'UI/UX' | 'AI/ML & Data' | 'Web Dev';
 
-export const CATEGORIES: Category[] = ['All', 'UI/UX', 'Data & ML/AI', 'Web Dev'];
+export const CATEGORIES: Category[] = ['All', 'UI/UX', 'AI/ML & Data', 'Web Dev'];
 
 export interface Quote {
   id: string;

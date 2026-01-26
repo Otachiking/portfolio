@@ -7,12 +7,21 @@ project_type: "Freelance"
 thumbnail: "/images/projects/ecommerce-thumb.jpg"
 excerpt: "Full-stack rebuild of a fashion e-commerce platform with focus on performance, accessibility, and conversion optimization."
 contributors:
+  - "muhammad-iqbal-rasyid"
   - "ahmad-rizki"
   - "sara-nur"
-tags:
+techStack:
   - "Next.js"
   - "TypeScript"
-  - "E-Commerce"
+  - "Shopify"
+  - "Vercel"
+links:
+  liveApp: "https://fashion-store-demo.vercel.app"
+  github: "https://github.com/iqbalrasyid/ecommerce-rebuild"
+tags:
+  - "NextJS"
+  - "TypeScript"
+  - "ECommerce"
   - "Performance"
 sections:
   - type: "overview"

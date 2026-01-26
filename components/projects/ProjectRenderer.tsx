@@ -7,10 +7,10 @@ import {
   InsightsBlock,
   VideoBlock,
   DemoBlock,
+  FeaturesBlock,
 } from './blocks';
 import { AccordionSection } from '@/components/ui';
 import type { Section, Project, Contributor } from '@/lib/types';
-import { Avatar } from '@/components/ui';
 
 interface ProjectRendererProps {
   sections: Section[];
@@ -19,15 +19,18 @@ interface ProjectRendererProps {
 }
 
 // Section configuration for accordion behavior
-const SECTION_CONFIG: Record<string, { title: string; defaultOpen: boolean; order: number }> = {
-  overview: { title: 'Overview', defaultOpen: true, order: 1 },
-  video: { title: 'Video Demonstration', defaultOpen: true, order: 2 },
-  demo: { title: 'Demo — Try it Yourself!', defaultOpen: false, order: 3 },
-  process: { title: 'Process', defaultOpen: false, order: 4 },
-  gallery: { title: 'Gallery', defaultOpen: false, order: 5 },
-  outcome: { title: 'Evaluation — Outcome', defaultOpen: false, order: 6 },
-  insights: { title: 'Evaluation — Insights', defaultOpen: false, order: 7 },
-  image: { title: 'Image', defaultOpen: false, order: 8 },
+// Order: Overview, Interactive App (demo), Features, Video, Process, Outcome, Insights, Gallery
+// Default open: Overview and Interactive App. If no Interactive App, Video is opened too.
+const SECTION_CONFIG: Record<string, { title: string; order: number }> = {
+  overview: { title: 'Overview', order: 1 },
+  demo: { title: 'Interactive App', order: 2 },
+  features: { title: 'Features', order: 3 },
+  video: { title: 'Video', order: 4 },
+  process: { title: 'Process', order: 5 },
+  outcome: { title: 'Outcome', order: 6 },
+  insights: { title: 'Insights', order: 7 },
+  gallery: { title: 'Gallery', order: 8 },
+  image: { title: 'Image', order: 9 },
 };
 
 function hasContent(section: Section): boolean {
@@ -35,6 +38,7 @@ function hasContent(section: Section): boolean {
     case 'overview':
     case 'process':
     case 'insights':
+    case 'features':
       return Boolean(section.content?.trim());
     case 'video':
     case 'demo':
@@ -60,6 +64,19 @@ export function ProjectRenderer({ sections, project, contributors }: ProjectRend
       return orderA - orderB;
     });
 
+  // Check if there's a demo section with content
+  const hasDemo = sortedSections.some(s => s.type === 'demo');
+
+  // Determine which sections should be open by default
+  // Overview and Interactive App (demo) are always open if they have content
+  // Video is opened only if there's no Interactive App
+  const getDefaultOpen = (sectionType: string): boolean => {
+    if (sectionType === 'overview') return true;
+    if (sectionType === 'demo') return true;
+    if (sectionType === 'video' && !hasDemo) return true;
+    return false;
+  };
+
   // Track index for alternating colors across all accordions
   let accordionIndex = 0;
 
@@ -68,8 +85,7 @@ export function ProjectRenderer({ sections, project, contributors }: ProjectRend
       {sortedSections.map((section, index) => {
         const key = `${section.type}-${index}`;
         const config = SECTION_CONFIG[section.type] || { 
-          title: section.title || section.type, 
-          defaultOpen: false 
+          title: section.title || section.type
         };
 
         const sectionContent = renderSectionContent(section);
@@ -78,85 +94,20 @@ export function ProjectRenderer({ sections, project, contributors }: ProjectRend
         const variant = accordionIndex % 2 === 0 ? 'primary' : 'secondary';
         accordionIndex++;
 
+        // Use section.title if provided (e.g., "Video"), otherwise use config title
+        const displayTitle = section.title || config.title;
+
         return (
           <AccordionSection
             key={key}
-            title={section.title || config.title}
-            defaultOpen={config.defaultOpen}
+            title={displayTitle}
+            defaultOpen={getDefaultOpen(section.type)}
             variant={variant}
           >
             {sectionContent}
           </AccordionSection>
         );
       })}
-
-      {/* Team Section - Always at the end if contributors exist */}
-      {contributors.length > 0 && (
-        <AccordionSection 
-          title="Team" 
-          defaultOpen={false}
-          variant={accordionIndex++ % 2 === 0 ? 'primary' : 'secondary'}
-        >
-          <div className="space-y-4">
-            <h3 className="text-sm font-medium uppercase tracking-wide text-text/60">
-              Contributors
-            </h3>
-            <ul className="space-y-3">
-              {contributors.map((contributor) => (
-                <li key={contributor.id}>
-                  <div className="flex items-center gap-3">
-                    <Avatar
-                      contributor={contributor}
-                      size="sm"
-                      showPopover={false}
-                    />
-                    <div>
-                      {contributor.linkedin ? (
-                        <a
-                          href={contributor.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm font-medium text-text underline underline-offset-2 transition-colors hover:text-primary"
-                        >
-                          {contributor.name}
-                          <span className="sr-only">(opens in new tab)</span>
-                        </a>
-                      ) : (
-                        <span className="text-sm font-medium text-text">
-                          {contributor.name}
-                        </span>
-                      )}
-                      {contributor.role && (
-                        <p className="text-xs text-text/60">{contributor.role}</p>
-                      )}
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </AccordionSection>
-      )}
-
-      {/* Tags Section */}
-      {project.tags && project.tags.length > 0 && (
-        <AccordionSection 
-          title="Tags & Technologies" 
-          defaultOpen={false}
-          variant={accordionIndex % 2 === 0 ? 'primary' : 'secondary'}
-        >
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="border border-text/20 bg-text/5 px-3 py-1 text-sm text-text/70"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </AccordionSection>
-      )}
     </div>
   );
 }
@@ -197,6 +148,9 @@ function renderSectionContent(section: Section): React.ReactNode {
 
     case 'demo':
       return <DemoBlock url={section.url || ''} title={section.title} />;
+
+    case 'features':
+      return <FeaturesBlock content={section.content || ''} />;
 
     default:
       console.warn(`Unknown section type: ${section.type}`);

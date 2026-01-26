@@ -7,12 +7,20 @@ project_type: "Client Work"
 thumbnail: "/images/projects/dashboard-thumb.jpg"
 excerpt: "Complete redesign of a B2B analytics platform focusing on data visualization clarity and user workflow optimization."
 contributors:
+  - "muhammad-iqbal-rasyid"
   - "sara-nur"
   - "falah-akbar"
+techStack:
+  - "Figma"
+  - "React"
+  - "D3.js"
+links:
+  liveApp: "https://analytics-dashboard-demo.vercel.app"
+  video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 tags:
-  - "Dashboard Design"
-  - "Data Visualization"
-  - "User Research"
+  - "DashboardDesign"
+  - "DataVisualization"
+  - "UserResearch"
   - "Figma"
 sections:
   - type: "overview"
@@ -20,7 +28,7 @@ sections:
       A comprehensive redesign of an enterprise analytics dashboard serving over 5,000 daily active users. The existing interface suffered from information overload, inconsistent visual hierarchy, and poor mobile responsiveness. Our goal was to create a cleaner, more intuitive experience that reduces cognitive load while improving data discoverability.
 
   - type: "video"
-    title: "Project Walkthrough"
+    title: "Video"
     url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 
   - type: "demo"

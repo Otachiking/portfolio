@@ -2,21 +2,30 @@
 title: "Multi-Industry Digital Marketing Performance Analysis"
 slug: "digital-marketing-insights"
 date: "2026-01-20"
-category: "Data & ML/AI"
+category: "AI/ML & Data"
 project_type: "Competition"
 thumbnail: "/images/projects/marketing-insights-thumb.jpg"
 excerpt: "Data analysis and interactive visualization platform exploring digital marketing performance across FMCG, Beauty, and Fashion industries, featuring dynamic graphs and data-driven storytelling."
 featured: true
 contributors:
+  - "muhammad-iqbal-rasyid"
   - "falah-akbar"
+techStack:
+  - "Python"
+  - "Pandas"
+  - "Plotly.js"
+  - "Flask"
+links:
+  liveApp: "https://marketing-insights-demo.vercel.app"
+  github: "https://github.com/iqbalrasyid/marketing-insights"
 tags:
-  - "Data Analysis"
-  - "Digital Marketing"
+  - "DataAnalysis"
+  - "DigitalMarketing"
   - "Python"
   - "JavaScript"
-  - "Data Visualization"
+  - "DataVisualization"
   - "Storytelling"
-  - "Interactive Dashboard"
+  - "InteractiveDashboard"
   - "Pandas"
   - "Plotly"
 sections:

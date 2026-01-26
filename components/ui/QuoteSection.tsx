@@ -74,6 +74,22 @@ export function QuoteSection({ quotes }: QuoteSectionProps) {
     }, prefersReducedMotion ? 150 : 400);
   }, [isAnimating, quotes.length, prefersReducedMotion]);
 
+  const goToIndex = useCallback((index: number) => {
+    if (isAnimating || index === currentIndex) return;
+
+    setIsAnimating(true);
+    setShowAttribution(false);
+
+    setTimeout(() => {
+      setCurrentIndex(index);
+      setIsAnimating(false);
+
+      setTimeout(() => {
+        setShowAttribution(true);
+      }, prefersReducedMotion ? 0 : 100);
+    }, prefersReducedMotion ? 150 : 400);
+  }, [isAnimating, currentIndex, prefersReducedMotion]);
+
   // Auto-advance timer with dynamic duration
   useEffect(() => {
     if (quotes.length <= 1) return;
@@ -110,12 +126,12 @@ export function QuoteSection({ quotes }: QuoteSectionProps) {
   return (
     <section
       ref={containerRef}
-      className="border-t border-text/10 bg-background py-12 sm:py-16"
+      className="border-t border-text/10 bg-background py-8 sm:py-10"
       aria-label="Inspirational quotes"
     >
       <div className="container-main">
         <div
-          className="mx-auto max-w-4xl text-center"
+          className="mx-auto max-w-5xl text-center min-h-[160px] sm:min-h-[180px] flex flex-col"
           role="region"
           aria-live="polite"
           aria-atomic="true"
@@ -123,7 +139,7 @@ export function QuoteSection({ quotes }: QuoteSectionProps) {
           {/* Quote Content */}
           <blockquote
             className={clsx(
-              'transition-all duration-400 ease-out',
+              'transition-all duration-400 ease-out flex-1',
               getAnimationClass()
             )}
           >
@@ -151,6 +167,27 @@ export function QuoteSection({ quotes }: QuoteSectionProps) {
               </cite>
             </footer>
           </blockquote>
+
+          {/* Square Indicators */}
+          {quotes.length > 1 && (
+            <div className="flex justify-center gap-2 mt-6">
+              {quotes.map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => goToIndex(index)}
+                  className={clsx(
+                    'w-2 h-2 transition-all duration-200',
+                    index === currentIndex
+                      ? 'bg-primary'
+                      : 'bg-text/20 hover:bg-text/40'
+                  )}
+                  aria-label={`Go to quote ${index + 1}`}
+                  aria-current={index === currentIndex ? 'true' : undefined}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

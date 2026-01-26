@@ -1,23 +1,50 @@
 [
   {
+    "id": "muhammad-iqbal-rasyid",
+    "name": "M. Iqbal Rasyid",
+    "linkedin": "https://www.linkedin.com/in/miqbalrasyid/",
+    "photo": "/images/people/Iqbal.jpg"
+  },
+  {
+    "id": "fahmi-aldzaddi",
+    "name": "Fahmi Aldzaddi",
+    "linkedin": "https://www.linkedin.com/in/fahmi-aldzaddi/",
+    "photo": "/images/people/Fahmi.jpg"
+  },
+  {
+    "id": "valdez-bentiraz",
+    "name": "Valdez Bentiraz",
+    "linkedin": "https://www.linkedin.com/in/valdez-bentiraz/",
+    "photo": "/images/people/Valdez.jpg"
+  },
+  {
+    "id": "rafi-suwargana",
+    "name": "Rafi Suwargana P.",
+    "linkedin": "https://www.linkedin.com/in/raapii/",
+    "photo": "/images/people/Rafi Suwargana.jpg"
+  },
+  {
+    "id": "galen-borneo",
+    "name": "Galen Borneo W.",
+    "linkedin": "https://www.linkedin.com/in/borneowibowo/",
+    "photo": ""
+  },
+  {
     "id": "falah-akbar",
     "name": "Falah Akbar",
-    "role": "ML Engineer",
     "linkedin": "https://www.linkedin.com/in/falah-akbar",
-    "photo": "/images/people/falah.jpg"
+    "photo": ""
   },
   {
     "id": "sara-nur",
     "name": "Sara Nur",
-    "role": "UI/UX Designer",
     "linkedin": "https://www.linkedin.com/in/saranur",
     "photo": ""
   },
   {
     "id": "ahmad-rizki",
     "name": "Ahmad Rizki",
-    "role": "Full Stack Developer",
     "linkedin": "https://www.linkedin.com/in/ahmadrizki",
-    "photo": "/images/people/ahmad.jpg"
+    "photo": ""
   }
 ]
