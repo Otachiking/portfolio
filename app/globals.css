@@ -9,7 +9,10 @@
   /* --color-primary: 73 39 109;
   --color-secondary: 204 0 44; */
   --color-primary: 204 0 44;
-  --color-secondary: 73 39 109;
+  --color-secondary: 100 54 150;
+  --color-light-grey: 245 245 247;
+  --color-dark-grey: 120 120 130;
+  --color-muted: 180 180 185;
   --bg: 255 255 255;
   --card-bg: 255 255 255;
   --radius: 0px;
@@ -18,6 +21,9 @@
 
 .dark {
   --color-text: 245 245 247;
+  --color-light-grey: 60 60 65;
+  --color-dark-grey: 180 180 185;
+  --color-muted: 100 100 105;
   --bg: 17 17 19;
   --card-bg: 28 28 32;
 }
@@ -103,5 +109,58 @@
   .sr-only-focusable:focus-within {
     @apply static m-0 h-auto w-auto overflow-visible whitespace-normal;
     clip: auto;
+  }
+
+  /* Hero animation utilities */
+  .clip-path-full {
+    clip-path: inset(0 0 0 0);
+  }
+
+  .clip-path-hidden-right {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  /* Radial gradient utility for dark mode glow */
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+  }
+
+  /* Slow spin animations for hero cubes */
+  .animate-slow-spin {
+    animation: slow-spin 60s linear infinite;
+  }
+
+  .animate-slow-spin-reverse {
+    animation: slow-spin-reverse 45s linear infinite;
+  }
+
+  @keyframes slow-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes slow-spin-reverse {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }

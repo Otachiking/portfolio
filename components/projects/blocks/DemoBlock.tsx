@@ -51,14 +51,20 @@ export function DemoBlock({ url, title = 'Live Demo' }: DemoBlockProps) {
         />
       </div>
       <p className="text-center text-sm text-text/60">
-        Having trouble?{' '}
+        Having trouble? Go to:{' '}
         <a
           href={url}
           target="_blank"
           rel="noopener noreferrer"
           className="text-primary underline underline-offset-2 transition-colors hover:text-primary/80"
         >
-          Open in new tab
+          {(() => {
+            try {
+              return new URL(url).hostname;
+            } catch {
+              return url;
+            }
+          })()}
           <span className="sr-only">(opens in new tab)</span>
         </a>
       </p>

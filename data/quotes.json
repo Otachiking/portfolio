@@ -1,7 +1,7 @@
 [
   {
     "id": "q-100-meters-1",
-    "text": "In the end, whether you have talent or passion, you'll still have to give it your all.",
+    "text": "In the end, whether you have talent or passion, \n you'll still have to give it your all.",
     "author": "Ramon Arroyo",
     "source": "100 Meters",
     "context": "Film"
@@ -11,21 +11,21 @@
     "text": "You’ve got a good heart. Don’t ever lose it.",
     "author": "Vander",
     "source": "Arcane",
-    "context": "Season 1 Episode 2"
+    "context": "S1:E2"
   },
   {
     "id": "q-arcane-viktor",
     "text": "When you’re going to change the world, don’t ask for permission.",
     "author": "Viktor",
     "source": "Arcane",
-    "context": "Season 1 Episode 2"
+    "context": "S1:E2"
   },
   {
     "id": "q-arcane-caitlyn",
     "text": "I'm an excellent shot.",
     "author": "Caitlyn Kiramman",
     "source": "Arcane",
-    "context": "Season 1 Episode 5"
+    "context": "S1:E5"
   },
   {
     "id": "q-mary-oliver-1",
@@ -47,5 +47,12 @@
     "author": "Alan Kay",
     "source": "Computer Science",
     "context": ""
+  },
+  {
+    "id": "q-jack-of-all-trades",
+    "text": "A jack of all trades is a master of none, but oftentimes better than a master of one.",
+    "author": "Old English",
+    "source": "Proverb",
+    "context": "Circa 1390"
   }
 ]

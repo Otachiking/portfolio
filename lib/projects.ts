@@ -34,6 +34,8 @@ export function getAllProjects(): Project[] {
         excerpt: data.excerpt,
         contributors: data.contributors || [],
         tags: data.tags || [],
+        techStack: data.techStack || [],
+        links: data.links || data.deliverables || undefined,
         sections: data.sections || [],
         featured: data.featured || false,
       } as Project;
@@ -66,6 +68,8 @@ export function getProjectBySlug(slug: string): Project | null {
         excerpt: data.excerpt,
         contributors: data.contributors || [],
         tags: data.tags || [],
+        techStack: data.techStack || [],
+        links: data.links || data.deliverables || undefined,
         sections: data.sections || [],
         featured: data.featured || false,
         content,
@@ -93,8 +97,18 @@ export function getProjectsByCategory(category: string): Project[] {
 
 export function getBestProjects(count: number = 3): Project[] {
   const allProjects = getAllProjects();
-  // Prioritize featured projects, then sort by date
-  const featuredProjects = allProjects.filter((p) => p.featured);
+  // Prioritize featured projects in specific order: AI-Desa, FiFuFa, Amazon
+  const priorityOrder = ['ai-desa-ocr-kk', 'fifufa-fun-facts-generator', 'amazon-network-analysis'];
+  const featuredProjects = allProjects
+    .filter((p) => p.featured)
+    .sort((a, b) => {
+      const aIndex = priorityOrder.indexOf(a.slug);
+      const bIndex = priorityOrder.indexOf(b.slug);
+      if (aIndex === -1 && bIndex === -1) return 0;
+      if (aIndex === -1) return 1;
+      if (bIndex === -1) return -1;
+      return aIndex - bIndex;
+    });
   const otherProjects = allProjects.filter((p) => !p.featured);
   return [...featuredProjects, ...otherProjects].slice(0, count);
 }

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { CardProject } from '@/components/ui';
+import { HeroSection } from '@/components/hero';
 import { getBestProjects, getContributors } from '@/lib';
 
 export default function HomePage() {
@@ -9,61 +10,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section
-        className="relative overflow-hidden border-b border-text/10"
-        aria-labelledby="hero-heading"
-      >
-        <div className="container-main py-24 sm:py-32 lg:py-40">
-          <div className="max-w-3xl">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
-              Portfolio
-            </p>
-            <h1
-              id="hero-heading"
-              className="heading-1 mb-6 text-balance"
-            >
-              Design-led work at the intersection of{' '}
-              <span className="text-primary">technology</span> and{' '}
-              <span className="text-secondary">creativity</span>
-            </h1>
-            <p className="body-large mb-8 max-w-2xl text-text/70">
-              Crafting meaningful digital experiences through thoughtful design,
-              robust engineering, and data-driven insights. Explore projects
-              spanning UI/UX, machine learning, and modern web development.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/projects"
-                className="inline-flex items-center justify-center border-2 border-primary bg-primary px-8 py-3 font-semibold text-white transition-colors hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-              >
-                View All Projects
-              </Link>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center border-2 border-text/20 px-8 py-3 font-semibold transition-colors hover:border-primary hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-              >
-                Connect on LinkedIn
-                <span aria-hidden="true" className="ml-2">
-                  ↗
-                </span>
-                <span className="sr-only">(opens in new tab)</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Background decoration */}
-        <div
-          className="absolute -right-32 -top-32 h-96 w-96 bg-gradient-to-br from-primary/5 to-secondary/5"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute -bottom-32 -left-32 h-96 w-96 bg-gradient-to-tr from-secondary/5 to-primary/5"
-          aria-hidden="true"
-        />
-      </section>
+      <HeroSection />
 
       {/* Featured Work Section */}
       <section
@@ -155,7 +102,7 @@ export default function HomePage() {
               >
                 🤖
               </div>
-              <h3 className="heading-3 mb-3">Data & ML/AI</h3>
+              <h3 className="heading-3 mb-3">AI/ML & Data</h3>
               <p className="text-text/70">
                 Machine learning solutions from computer vision to NLP. Building
                 intelligent systems that solve real-world problems.
@@ -184,7 +131,7 @@ export default function HomePage() {
 
       {/* CTA Section */}
       <section
-        className="py-24"
+        className="py-24 transition-all duration-500"
         aria-labelledby="cta-heading"
       >
         <div className="container-main text-center">

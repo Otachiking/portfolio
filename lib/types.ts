@@ -33,6 +33,7 @@ export interface ProjectLinks {
   video?: string;
   github?: string;
   source?: string;
+  paper?: string;
 }
 
 export interface ProjectFrontmatter {

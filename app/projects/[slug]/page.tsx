@@ -123,19 +123,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Project Header */}
         <header className="mb-8">
-          <h1 id="project-title" className="text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl mb-4 text-balance">
+          <h1 id="project-title" className="text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl mb-2 text-balance">
             {project.title}
           </h1>
 
-          {/* Meta row with labels and attachment buttons */}
-          <div className="flex flex-wrap items-center justify-between gap-4 mt-2">
+          {/* Excerpt */}
+          <p className="text-lg italic text-text/70 mb-6">
+            {project.excerpt}
+          </p>
+
+          {/* Meta row with labels and attachment buttons - same row on desktop */}
+          <div className="flex flex-col gap-3 mt-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
             {/* Left: Category, Label, Date */}
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="text-base font-medium text-text/80">Category:</span>
+            <div className="flex flex-wrap items-center gap-2">
               <Pill label={project.category} variant="tag" size="md" />
-              <span className="text-base font-medium text-text/80">Label:</span>
               <Pill label={project.project_type} variant="default" size="md" />
-              <span className="text-base font-medium text-text/70">
+              <span className="text-sm text-text/60">
                 <time dateTime={project.date}>
                   {new Date(project.date).toLocaleDateString('en-GB', {
                     day: '2-digit',
@@ -146,53 +149,65 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </span>
             </div>
 
-            {/* Right: Attachment buttons */}
-            {project.links && (
-              <div className="flex items-center gap-2">
-                {project.links.liveApp && (
-                  <a
-                    href={project.links.liveApp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-white bg-secondary hover:bg-secondary/90 transition-colors"
-                  >
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                    </svg>
-                    Demo
-                    <span className="sr-only">(opens in new tab)</span>
-                  </a>
-                )}
-                {project.links.video && (
-                  <a
-                    href={project.links.video}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-white bg-primary hover:bg-primary/90 transition-colors"
-                  >
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                    Video
-                    <span className="sr-only">(opens in new tab)</span>
-                  </a>
-                )}
-                {(project.links.github || project.links.source) && (
-                  <a
-                    href={project.links.source || project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-white bg-text/50 hover:bg-text/60 transition-colors"
-                  >
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/>
-                    </svg>
-                    Source
-                    <span className="sr-only">(opens in new tab)</span>
-                  </a>
-                )}
-              </div>
-            )}
+            {/* Right on desktop, below on mobile: Hotbar buttons */}
+            {project.links && (() => {
+              const linkCount = [project.links.liveApp, project.links.video, project.links.github || project.links.source, project.links.paper].filter(Boolean).length;
+              return (
+                <div 
+                  className="grid gap-2 sm:flex sm:gap-2"
+                  style={{ gridTemplateColumns: `repeat(${linkCount}, 1fr)` }}
+                >
+                  {project.links.liveApp && (
+                    <a
+                      href={project.links.liveApp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-col items-center justify-center gap-1 min-h-[44px] px-3 py-2 text-sm font-medium text-white bg-secondary hover:bg-secondary/90 transition-colors sm:flex-row-reverse sm:min-h-0 sm:py-1.5 sm:gap-1.5"
+                    >
+                      <span className="material-icons" style={{ fontSize: '20px' }}>star</span>
+                      <span>Demo</span>
+                      <span className="sr-only">(opens in new tab)</span>
+                    </a>
+                  )}
+                  {project.links.video && (
+                    <a
+                      href={project.links.video}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-col items-center justify-center gap-1 min-h-[44px] px-3 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 transition-colors sm:flex-row-reverse sm:min-h-0 sm:py-1.5 sm:gap-1.5"
+                    >
+                      <span className="material-icons" style={{ fontSize: '20px' }}>play_arrow</span>
+                      <span>Video</span>
+                      <span className="sr-only">(opens in new tab)</span>
+                    </a>
+                  )}
+                  {(project.links.github || project.links.source) && (
+                    <a
+                      href={project.links.source || project.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-col items-center justify-center gap-1 min-h-[44px] px-3 py-2 text-sm font-medium text-white bg-dark-grey hover:bg-dark-grey/80 transition-colors sm:flex-row-reverse sm:min-h-0 sm:py-1.5 sm:gap-1.5"
+                    >
+                      <span className="material-icons" style={{ fontSize: '20px' }}>folder</span>
+                      <span>Source</span>
+                      <span className="sr-only">(opens in new tab)</span>
+                    </a>
+                  )}
+                  {project.links.paper && (
+                    <a
+                      href={project.links.paper}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-col items-center justify-center gap-1 min-h-[44px] px-3 py-2 text-sm font-medium text-text border border-text/30 bg-light-grey hover:bg-light-grey/80 transition-colors sm:flex-row-reverse sm:min-h-0 sm:py-1.5 sm:gap-1.5"
+                    >
+                      <span className="material-icons" style={{ fontSize: '20px' }}>description</span>
+                      <span>Paper</span>
+                      <span className="sr-only">(opens in new tab)</span>
+                    </a>
+                  )}
+                </div>
+              );
+            })()}
           </div>
         </header>
 
@@ -238,7 +253,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             {/* Right Column: Tech Stack & Tags */}
             <div className="flex flex-col gap-6">
-              {/* Tech Stack */}
+              {/* Tech Stack - dark grey pills using CSS variable */}
               {project.techStack && project.techStack.length > 0 && (
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-text/50 mb-3">
@@ -248,7 +263,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     {project.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="inline-flex items-center px-3 py-1 text-sm font-medium bg-card-bg text-text border border-text/20"
+                        className="inline-flex items-center px-3 py-1 text-sm font-medium bg-dark-grey/20 text-text border border-dark-grey/30"
                       >
                         {tech}
                       </span>
@@ -257,7 +272,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
               )}
 
-              {/* Tags */}
+              {/* Tags - purple pills using secondary color */}
               {project.tags && project.tags.length > 0 && (
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-text/50 mb-3">

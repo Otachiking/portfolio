@@ -62,7 +62,7 @@ export function Header() {
             aria-label="Go to homepage"
             tabIndex={isVisible ? 0 : -1}
           >
-            Portfolio
+            Iqbal&apos;s Portfolio
           </Link>
 
           <div className="flex items-center gap-6">

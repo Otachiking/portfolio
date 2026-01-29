@@ -17,20 +17,11 @@ interface QuoteSectionProps {
 
 /**
  * Calculate display duration based on quote length
- * 
- * Formula: baseDuration + (characterCount * msPerCharacter)
- * - Base duration: 2000ms (minimum time to read)
- * - Reading speed: ~25ms per character (average reading speed ~200-250 WPM)
- * - This means:
- *   - 50 chars  → 2000 + (50 × 25)  = 3250ms (~3.3s)
- *   - 100 chars → 2000 + (100 × 25) = 4500ms (~4.5s)
- *   - 150 chars → 2000 + (150 × 25) = 5750ms (~5.8s)
- *   - 200 chars → 2000 + (200 × 25) = 7000ms (~7s)
  */
 function calculateDuration(text: string): number {
-  const baseDuration = 2000; // Minimum 2 seconds
-  const msPerCharacter = 25; // ~25ms per character
-  const maxDuration = 8000; // Cap at 8 seconds
+  const baseDuration = 2000;
+  const msPerCharacter = 25;
+  const maxDuration = 8000;
   
   const duration = baseDuration + (text.length * msPerCharacter);
   return Math.min(duration, maxDuration);
@@ -41,6 +32,7 @@ export function QuoteSection({ quotes }: QuoteSectionProps) {
   const [isAnimating, setIsAnimating] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [showAttribution, setShowAttribution] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -67,28 +59,27 @@ export function QuoteSection({ quotes }: QuoteSectionProps) {
       setCurrentIndex((prev) => (prev + 1) % quotes.length);
       setIsAnimating(false);
 
-      // Delay attribution appearance
       setTimeout(() => {
         setShowAttribution(true);
       }, prefersReducedMotion ? 0 : 100);
     }, prefersReducedMotion ? 150 : 400);
   }, [isAnimating, quotes.length, prefersReducedMotion]);
 
-  const goToIndex = useCallback((index: number) => {
-    if (isAnimating || index === currentIndex) return;
+  const goToPrev = useCallback(() => {
+    if (isAnimating || quotes.length <= 1) return;
 
     setIsAnimating(true);
     setShowAttribution(false);
 
     setTimeout(() => {
-      setCurrentIndex(index);
+      setCurrentIndex((prev) => (prev - 1 + quotes.length) % quotes.length);
       setIsAnimating(false);
 
       setTimeout(() => {
         setShowAttribution(true);
       }, prefersReducedMotion ? 0 : 100);
     }, prefersReducedMotion ? 150 : 400);
-  }, [isAnimating, currentIndex, prefersReducedMotion]);
+  }, [isAnimating, quotes.length, prefersReducedMotion]);
 
   // Auto-advance timer with dynamic duration
   useEffect(() => {
@@ -126,24 +117,56 @@ export function QuoteSection({ quotes }: QuoteSectionProps) {
   return (
     <section
       ref={containerRef}
-      className="border-t border-text/10 bg-background py-8 sm:py-10"
+      className="relative border-t border-text/10 bg-background py-8 sm:py-10"
       aria-label="Inspirational quotes"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
+      {/* Previous Arrow - positioned on left edge */}
+      {quotes.length > 1 && (
+        <button
+          type="button"
+          onClick={goToPrev}
+          className={clsx(
+            'absolute left-4 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center text-text/30 transition-all duration-300 hover:text-text/70 focus:text-text/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary',
+            isHovered ? 'opacity-100' : 'opacity-0'
+          )}
+          aria-label="Previous quote"
+        >
+          <span className="material-icons text-3xl">chevron_left</span>
+        </button>
+      )}
+
+      {/* Next Arrow - positioned on right edge */}
+      {quotes.length > 1 && (
+        <button
+          type="button"
+          onClick={goToNext}
+          className={clsx(
+            'absolute right-4 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center text-text/30 transition-all duration-300 hover:text-text/70 focus:text-text/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary',
+            isHovered ? 'opacity-100' : 'opacity-0'
+          )}
+          aria-label="Next quote"
+        >
+          <span className="material-icons text-3xl">chevron_right</span>
+        </button>
+      )}
+
       <div className="container-main">
         <div
-          className="mx-auto max-w-5xl text-center min-h-[160px] sm:min-h-[180px] flex flex-col"
+          className="text-center min-h-[160px] sm:min-h-[180px] flex flex-col justify-center"
           role="region"
           aria-live="polite"
           aria-atomic="true"
         >
-          {/* Quote Content */}
+          {/* Quote Content - vertically centered */}
           <blockquote
             className={clsx(
-              'transition-all duration-400 ease-out flex-1',
+              'transition-all duration-400 ease-out',
               getAnimationClass()
             )}
           >
-            <p className="text-xl font-medium leading-relaxed tracking-tight text-text sm:text-2xl md:text-3xl">
+            <p className="text-xl font-medium leading-relaxed tracking-tight text-text sm:text-2xl md:text-3xl whitespace-pre-line">
               &ldquo;{currentQuote.text}&rdquo;
             </p>
 
@@ -167,27 +190,6 @@ export function QuoteSection({ quotes }: QuoteSectionProps) {
               </cite>
             </footer>
           </blockquote>
-
-          {/* Square Indicators */}
-          {quotes.length > 1 && (
-            <div className="flex justify-center gap-2 mt-6">
-              {quotes.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => goToIndex(index)}
-                  className={clsx(
-                    'w-2 h-2 transition-all duration-200',
-                    index === currentIndex
-                      ? 'bg-primary'
-                      : 'bg-text/20 hover:bg-text/40'
-                  )}
-                  aria-label={`Go to quote ${index + 1}`}
-                  aria-current={index === currentIndex ? 'true' : undefined}
-                />
-              ))}
-            </div>
-          )}
         </div>
       </div>
     </section>
