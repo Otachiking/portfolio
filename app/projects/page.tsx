@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { getAllProjects, getContributors } from '@/lib';
 import { ProjectsClient } from './ProjectsClient';
 
@@ -7,6 +8,14 @@ export const metadata: Metadata = {
   description:
     'Explore all projects spanning UI/UX design, machine learning, and web development.',
 };
+
+function ProjectsLoading() {
+  return (
+    <div className="flex items-center justify-center py-16">
+      <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+    </div>
+  );
+}
 
 export default function ProjectsPage() {
   const projects = getAllProjects();
@@ -30,8 +39,10 @@ export default function ProjectsPage() {
           </p>
         </header>
 
-        {/* Client-side filtering */}
-        <ProjectsClient projects={projects} contributors={contributors} />
+        {/* Client-side filtering wrapped in Suspense for useSearchParams */}
+        <Suspense fallback={<ProjectsLoading />}>
+          <ProjectsClient projects={projects} contributors={contributors} />
+        </Suspense>
       </div>
     </section>
   );

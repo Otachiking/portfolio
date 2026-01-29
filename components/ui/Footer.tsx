@@ -19,13 +19,24 @@ export function Footer() {
           <p className="text-sm text-text/50">
             © {currentYear} Iqbal&apos;s Portfolio. All rights reserved.
           </p>
-          <div className="flex items-center gap-4 flex-wrap justify-center">
+          <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-4">
             <a
               href="mailto:otachiking123@gmail.com"
               className="inline-flex items-center gap-1 text-sm text-text/50 transition-colors hover:text-primary"
             >
               <span className="material-icons text-base" aria-hidden="true">mail</span>
-              otachiking123@gmail.com
+              <span className="truncate">otachiking123@gmail.com</span>
+            </a>
+            <span className="text-text/20 hidden sm:inline">|</span>
+            <a
+              href="https://github.com/Otachiking"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-sm text-text/50 transition-colors hover:text-primary"
+            >
+              GitHub
+              <span aria-hidden="true">↗</span>
+              <span className="sr-only">(opens in new tab)</span>
             </a>
             <span className="text-text/20 hidden sm:inline">|</span>
             <a
