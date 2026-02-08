@@ -2,7 +2,7 @@
 title: "DVD Amazon Co-Purchases Network Analysis"
 slug: "amazon-network-analysis"
 date: "2025-12-15"
-category: "AI/ML & Data"
+category: "Data Analysis & Visualization"
 project_type: "Academic Project"
 thumbnail: "/images/projects/dvd_amazon_thumb.png"
 excerpt: "Social Network Analysis of Amazon's DVD co-purchase patterns using NetworkX, featuring centrality metrics, clustering analysis, and an interactive web-based graph visualization."
@@ -98,52 +98,4 @@ sections:
         alt: "Interactive web application interface"
         caption: "Web-based explorer with search and filtering"
 
-  - type: "outcome"
-    metrics:
-      - name: "Nodes Analyzed"
-        value: "19.8K"
-      - name: "Edges Mapped"
-        value: "78.4K"
-      - name: "Communities Found"
-        value: "23"
-      - name: "Avg. Clustering"
-        value: "0.42"
-    content: |
-      The network analysis revealed several actionable insights for recommendation system design:
-
-      **Structural Findings:**
-      - The DVD network exhibits small-world properties (avg. path length: 4.2 hops)
-      - High clustering coefficient (0.42) indicates strong genre-based groupings
-      - Power-law degree distribution confirms presence of "hub" products
-
-      **Recommendation Insights:**
-      - Traditional collaborative filtering misses cross-genre opportunities
-      - Betweenness-central products are ideal for recommendation diversification
-      - Community-aware recommendations can balance relevance with discovery
-
-      **Academic Outcome:**
-      The project received distinction grade and was selected for presentation at the department's annual data science showcase. The interactive visualization component was particularly noted for making complex network concepts accessible.
-
-  - type: "insights"
-    content: |
-      **Technical Implementation:**
-      - NetworkX handles graphs up to ~100K nodes well; larger would need graph databases
-      - Force-directed layouts (ForceAtlas2) create intuitive visualizations but require parameter tuning
-      - Web visualization used D3.js with WebGL acceleration for smooth interaction
-
-      **Analytical Insights:**
-      - Co-purchase networks capture different information than rating-based similarity
-      - Temporal analysis (when edges formed) could reveal trend prediction opportunities
-      - Sales rank doesn't correlate strongly with network centrality—different value signals
-
-      **Visualization Challenges:**
-      - Full graph is too dense to visualize meaningfully—implemented zoom-based detail levels
-      - Color-coding 23 communities required careful palette selection for distinguishability
-      - Added search functionality as users wanted to find specific products
-
-      **Future Research Directions:**
-      - Extend analysis to other product categories and compare network structures
-      - Incorporate temporal dynamics (edge formation over time)
-      - Build actual recommendation engine using network-based features
-      - Apply similar analysis to streaming service viewing patterns
 ---

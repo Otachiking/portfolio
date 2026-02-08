@@ -24,7 +24,6 @@ export function Footer() {
               href="mailto:otachiking123@gmail.com"
               className="inline-flex items-center gap-1 text-sm text-text/50 transition-colors hover:text-primary"
             >
-              <span className="material-icons text-base" aria-hidden="true">mail</span>
               <span className="truncate">otachiking123@gmail.com</span>
             </a>
             <span className="text-text/20 hidden sm:inline">|</span>

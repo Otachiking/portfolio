@@ -2,7 +2,7 @@
 title: "Analytics Dashboard Redesign"
 slug: "analytics-dashboard-redesign"
 date: "2025-02-15"
-category: "UI/UX"
+category: "UI/UX & Web"
 project_type: "Client Work"
 thumbnail: "/images/projects/dashboard-thumb.jpg"
 excerpt: "Complete redesign of a B2B analytics platform focusing on data visualization clarity and user workflow optimization."
@@ -61,36 +61,4 @@ sections:
         alt: "Mobile responsive view of the analytics dashboard"
         caption: "Mobile-first responsive design"
 
-  - type: "outcome"
-    metrics:
-      - name: "Task Completion"
-        value: "+34%"
-      - name: "Time to Insight"
-        value: "-45%"
-      - name: "User Satisfaction"
-        value: "4.6/5"
-      - name: "Mobile Usage"
-        value: "+180%"
-    content: |
-      The redesigned dashboard launched to positive reception, with measurable improvements across all key metrics. User satisfaction scores increased from 3.1 to 4.6 out of 5, and support tickets related to "finding reports" decreased by 78%.
-
-      The new design system we created was adopted across three other products in the client's portfolio, establishing a consistent user experience and reducing future design and development time.
-
-  - type: "insights"
-    content: |
-      **Design Decisions:**
-      - Chose card-based layout for scannability and responsive flexibility
-      - Implemented contextual actions to reduce menu hunting
-      - Created a custom chart component library for consistent data visualization
-
-      **Accessibility Focus:**
-      - All charts include data tables for screen reader users
-      - Color palette tested for deuteranopia and protanopia
-      - Keyboard navigation implemented for all interactive elements
-      - Focus indicators visible and consistent throughout
-
-      **Lessons Learned:**
-      - Early stakeholder alignment on metrics prevented scope creep
-      - Real user data often contradicts stated preferences—observe, don't just ask
-      - Design system investment pays dividends in long-term maintenance
 ---

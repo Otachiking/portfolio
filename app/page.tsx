@@ -85,10 +85,10 @@ export default function HomePage() {
               >
                 🎨
               </div>
-              <h3 className="heading-3 mb-3">UI/UX Design</h3>
+              <h3 className="heading-3 mb-3">UI/UX & Web</h3>
               <p className="text-text/70">
-                User-centered design with focus on accessibility, usability, and
-                delightful interactions. From research to high-fidelity prototypes.
+                User-centered design and modern web development. From research and prototypes
+                to production-ready React and Next.js applications.
               </p>
             </div>
 
@@ -102,10 +102,10 @@ export default function HomePage() {
               >
                 🤖
               </div>
-              <h3 className="heading-3 mb-3">AI/ML & Data</h3>
+              <h3 className="heading-3 mb-3">AI & Machine Learning</h3>
               <p className="text-text/70">
-                Machine learning solutions from computer vision to NLP. Building
-                intelligent systems that solve real-world problems.
+                Intelligent systems from computer vision to NLP and generative AI. 
+                Building ML solutions that solve real-world problems.
               </p>
             </div>
 
@@ -117,12 +117,12 @@ export default function HomePage() {
                 className="mb-4 flex h-12 w-12 items-center justify-center bg-text text-2xl text-white"
                 aria-hidden="true"
               >
-                💻
+                📊
               </div>
-              <h3 className="heading-3 mb-3">Web Development</h3>
+              <h3 className="heading-3 mb-3">Data Analysis & Visualization</h3>
               <p className="text-text/70">
-                Modern web applications with focus on performance, accessibility,
-                and developer experience. React, Next.js, and beyond.
+                Transforming raw data into actionable insights through analysis, 
+                storytelling, and interactive visualizations.
               </p>
             </div>
           </div>

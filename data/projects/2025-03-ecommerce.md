@@ -2,7 +2,7 @@
 title: "E-Commerce Platform Rebuild"
 slug: "ecommerce-platform-rebuild"
 date: "2025-03-20"
-category: "Web Dev"
+category: "UI/UX & Web"
 project_type: "Freelance"
 thumbnail: "/images/projects/ecommerce-thumb.jpg"
 excerpt: "Full-stack rebuild of a fashion e-commerce platform with focus on performance, accessibility, and conversion optimization."
@@ -56,21 +56,6 @@ sections:
     alt: "System architecture diagram showing Next.js frontend, Shopify backend, and CDN layer"
     caption: "High-level system architecture"
 
-  - type: "outcome"
-    metrics:
-      - name: "Lighthouse Score"
-        value: "94"
-      - name: "LCP"
-        value: "1.2s"
-      - name: "Conversion Rate"
-        value: "+28%"
-      - name: "Bounce Rate"
-        value: "-35%"
-    content: |
-      The rebuilt platform launched after 4 months of development, immediately showing dramatic improvements in all key metrics. The client reported their highest single-day revenue on launch day.
-
-      Performance improvements directly correlated with business results—the 28% increase in conversion rate represented significant additional revenue. The improved Core Web Vitals also contributed to better search rankings, with organic traffic increasing 42% in the following quarter.
-
   - type: "gallery"
     images:
       - src: "/images/projects/ecommerce-home.jpg"
@@ -83,28 +68,4 @@ sections:
         alt: "Shopping cart with upsell recommendations"
         caption: "Streamlined cart experience"
 
-  - type: "insights"
-    content: |
-      **Technical Highlights:**
-      - Implemented optimistic UI updates for cart operations
-      - Built custom image zoom with lazy loading
-      - Created reusable component library for future scalability
-
-      **Accessibility Implementation:**
-      - Full keyboard navigation including focus trapping in modals
-      - ARIA live regions for cart updates and notifications
-      - Skip links for main content and navigation
-      - Alt text for all product images from CMS
-      - Form validation with accessible error messages
-
-      **Performance Optimizations:**
-      - Route prefetching for predictive navigation
-      - Critical CSS inlining
-      - Third-party script loading strategy
-      - Service worker for offline product browsing
-
-      **Next Steps:**
-      - A/B testing framework for conversion optimization
-      - Personalization engine integration
-      - International expansion with i18n support
 ---

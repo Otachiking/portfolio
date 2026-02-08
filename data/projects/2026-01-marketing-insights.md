@@ -2,7 +2,7 @@
 title: "Multi-Industry Digital Marketing Performance Analysis"
 slug: "digital-marketing-insights"
 date: "2026-01-20"
-category: "AI/ML & Data"
+category: "Data Analysis & Visualization"
 project_type: "Competition"
 thumbnail: "/images/projects/marketing-insights-thumb.jpg"
 excerpt: "Data analysis and interactive visualization platform exploring digital marketing performance across FMCG, Beauty, and Fashion industries, featuring dynamic graphs and data-driven storytelling."
@@ -87,46 +87,4 @@ sections:
         alt: "Data storytelling section with narrative insights"
         caption: "Narrative-driven insight presentation"
 
-  - type: "outcome"
-    metrics:
-      - name: "Clients Analyzed"
-        value: "12"
-      - name: "Data Points"
-        value: "1.2M+"
-      - name: "Insights Generated"
-        value: "25+"
-      - name: "Competition Result"
-        value: "Top 5"
-    content: |
-      The project successfully delivered a comprehensive analysis platform that impressed competition judges with its depth of insight and innovative presentation approach. The interactive storytelling format made complex data accessible to non-technical stakeholders.
-
-      Key deliverables included:
-      - Executive summary with actionable recommendations per industry
-      - Interactive dashboard with filterable views by client, industry, and time period
-      - Exportable PDF reports for each client with benchmarking against industry averages
-      - Presentation deck with data-driven narratives for the final pitch
-
-      The project placed in the Top 5 among 40+ competing teams, with judges particularly noting the quality of data visualization and the storytelling approach to presenting insights.
-
-  - type: "insights"
-    content: |
-      **Analytical Approach:**
-      - Started with hypothesis-driven analysis but remained open to unexpected findings
-      - Used statistical significance testing to validate trends before presenting as insights
-      - Created industry-specific benchmarks rather than one-size-fits-all metrics
-
-      **Visualization Philosophy:**
-      - Every chart should answer a specific question—removed decorative visualizations
-      - Implemented progressive disclosure: overview first, then details on demand
-      - Used consistent color coding across all visualizations for cognitive ease
-
-      **Technical Decisions:**
-      - Chose Plotly.js over D3.js for faster development with acceptable customization
-      - Built API endpoints to enable real-time data updates during presentation
-      - Implemented lazy loading for performance with large datasets
-
-      **Lessons for Future Projects:**
-      - Data quality issues consume 60% of project time—budget accordingly
-      - Stakeholder feedback early saves significant rework later
-      - Interactive presentations are far more engaging than static slides
 ---

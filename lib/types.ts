@@ -17,15 +17,15 @@ export interface GalleryImage {
 }
 
 export interface Section {
-  type: 'overview' | 'process' | 'image' | 'gallery' | 'outcome' | 'insights' | 'video' | 'demo' | 'features';
+  type: 'overview' | 'process' | 'image' | 'gallery' | 'video' | 'demo' | 'features' | 'wip';
   title?: string;
   content?: string;
   src?: string;
   alt?: string;
   caption?: string;
   images?: GalleryImage[];
-  metrics?: Metric[];
   url?: string; // For video embeds (YouTube) or demo iframe URLs
+  wipMessage?: string; // Custom message for WIP sections
 }
 
 export interface ProjectLinks {
@@ -56,9 +56,9 @@ export interface Project extends ProjectFrontmatter {
   content?: string;
 }
 
-export type Category = 'All' | 'UI/UX' | 'AI/ML & Data' | 'Web Dev';
+export type Category = 'All' | 'UI/UX & Web' | 'AI & Machine Learning' | 'Data Analysis & Visualization';
 
-export const CATEGORIES: Category[] = ['All', 'UI/UX', 'AI/ML & Data', 'Web Dev'];
+export const CATEGORIES: Category[] = ['All', 'UI/UX & Web', 'AI & Machine Learning', 'Data Analysis & Visualization'];
 
 export interface Quote {
   id: string;

@@ -3,11 +3,10 @@ import {
   ImageBlock,
   GalleryBlock,
   ProcessBlock,
-  OutcomeBlock,
-  InsightsBlock,
   VideoBlock,
   DemoBlock,
   FeaturesBlock,
+  WIPBlock,
 } from './blocks';
 import { AccordionSection } from '@/components/ui';
 import type { Section, Project, Contributor } from '@/lib/types';
@@ -19,25 +18,23 @@ interface ProjectRendererProps {
 }
 
 // Section configuration for accordion behavior
-// Order: Overview, Interactive App (demo), Features, Video, Process, Outcome, Insights, Gallery
+// Order: Overview, Interactive App (demo), Features, Video, Process
 // Default open: Overview and Interactive App. If no Interactive App, Video is opened too.
+// Note: Gallery is rendered separately (not in accordion)
 const SECTION_CONFIG: Record<string, { title: string; order: number }> = {
   overview: { title: 'Overview', order: 1 },
   demo: { title: 'Interactive App', order: 2 },
   features: { title: 'Features', order: 3 },
   video: { title: 'Video', order: 4 },
   process: { title: 'Process', order: 5 },
-  outcome: { title: 'Outcome', order: 6 },
-  insights: { title: 'Insights', order: 7 },
-  gallery: { title: 'Gallery', order: 8 },
-  image: { title: 'Image', order: 9 },
+  image: { title: 'Image', order: 6 },
+  wip: { title: 'Coming Soon', order: 7 },
 };
 
 function hasContent(section: Section): boolean {
   switch (section.type) {
     case 'overview':
     case 'process':
-    case 'insights':
     case 'features':
       return Boolean(section.content?.trim());
     case 'video':
@@ -47,16 +44,20 @@ function hasContent(section: Section): boolean {
       return Boolean(section.src?.trim());
     case 'gallery':
       return Boolean(section.images && section.images.length > 0);
-    case 'outcome':
-      return Boolean(section.content?.trim() || (section.metrics && section.metrics.length > 0));
+    case 'wip':
+      return true; // WIP sections always show
     default:
       return true;
   }
 }
 
 export function ProjectRenderer({ sections, project, contributors }: ProjectRendererProps) {
-  // Sort sections by configured order
-  const sortedSections = [...sections]
+  // Separate gallery sections from accordion sections
+  const gallerySections = sections.filter(s => s.type === 'gallery' && hasContent(s));
+  const accordionSections = sections.filter(s => s.type !== 'gallery');
+
+  // Sort accordion sections by configured order
+  const sortedSections = [...accordionSections]
     .filter(hasContent)
     .sort((a, b) => {
       const orderA = SECTION_CONFIG[a.type]?.order ?? 99;
@@ -81,33 +82,45 @@ export function ProjectRenderer({ sections, project, contributors }: ProjectRend
   let accordionIndex = 0;
 
   return (
-    <div className="space-y-2">
-      {sortedSections.map((section, index) => {
-        const key = `${section.type}-${index}`;
-        const config = SECTION_CONFIG[section.type] || { 
-          title: section.title || section.type
-        };
+    <div>
+      {/* Accordion Sections */}
+      <div className="space-y-2">
+        {sortedSections.map((section, index) => {
+          const key = `${section.type}-${index}`;
+          const config = SECTION_CONFIG[section.type] || { 
+            title: section.title || section.type
+          };
 
-        const sectionContent = renderSectionContent(section);
-        if (!sectionContent) return null;
+          const sectionContent = renderSectionContent(section);
+          if (!sectionContent) return null;
 
-        const variant = accordionIndex % 2 === 0 ? 'primary' : 'secondary';
-        accordionIndex++;
+          const variant = accordionIndex % 2 === 0 ? 'primary' : 'secondary';
+          accordionIndex++;
 
-        // Use section.title if provided (e.g., "Video"), otherwise use config title
-        const displayTitle = section.title || config.title;
+          // Use section.title if provided (e.g., "Video"), otherwise use config title
+          const displayTitle = section.title || config.title;
 
-        return (
-          <AccordionSection
-            key={key}
-            title={displayTitle}
-            defaultOpen={getDefaultOpen(section.type)}
-            variant={variant}
-          >
-            {sectionContent}
-          </AccordionSection>
-        );
-      })}
+          return (
+            <AccordionSection
+              key={key}
+              title={displayTitle}
+              defaultOpen={getDefaultOpen(section.type)}
+              variant={variant}
+            >
+              {sectionContent}
+            </AccordionSection>
+          );
+        })}
+      </div>
+
+      {/* Gallery Sections - Rendered separately, not in accordion */}
+      {gallerySections.map((section, index) => (
+        <GalleryBlock 
+          key={`gallery-${index}`}
+          images={section.images || []} 
+          title={section.title || 'Gallery'}
+        />
+      ))}
     </div>
   );
 }
@@ -129,20 +142,6 @@ function renderSectionContent(section: Section): React.ReactNode {
         />
       );
 
-    case 'gallery':
-      return <GalleryBlock images={section.images || []} />;
-
-    case 'outcome':
-      return (
-        <OutcomeBlock
-          metrics={section.metrics}
-          content={section.content || ''}
-        />
-      );
-
-    case 'insights':
-      return <InsightsBlock content={section.content || ''} />;
-
     case 'video':
       return <VideoBlock url={section.url || ''} title={section.title} />;
 
@@ -151,6 +150,9 @@ function renderSectionContent(section: Section): React.ReactNode {
 
     case 'features':
       return <FeaturesBlock content={section.content || ''} />;
+
+    case 'wip':
+      return <WIPBlock title={section.title} message={section.wipMessage} />;
 
     default:
       console.warn(`Unknown section type: ${section.type}`);
