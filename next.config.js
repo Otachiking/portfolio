@@ -9,6 +9,10 @@ const nextConfig = {
   generateBuildId: async () => {
     return 'build-' + Date.now();
   },
+  // Expose build timestamp to client
+  env: {
+    NEXT_PUBLIC_BUILD_TIME: new Date().toISOString(),
+  },
 };
 
 module.exports = nextConfig;

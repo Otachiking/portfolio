@@ -200,7 +200,7 @@ export function GalleryBlock({ images, title = "Gallery" }: GalleryBlockProps) {
           </div>
 
           {/* Keyboard hints */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4 text-white/40 text-xs">
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 flex gap-4 text-white/40 text-xs">
             <span>← → Navigate</span>
             <span>ESC Close</span>
           </div>

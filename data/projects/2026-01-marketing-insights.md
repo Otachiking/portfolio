@@ -1,11 +1,11 @@
 ---
-title: "Multi-Industry Digital Marketing Performance Analysis"
-slug: "digital-marketing-insights"
+title: "Multi-Industry Performance Analysis & Strategic Recommendation"
+slug: "insight-performance-analysis"
 date: "2026-01-20"
 category: "Data Analysis & Visualization"
 project_type: "Competition"
-thumbnail: "/images/projects/marketing-insights-thumb.jpg"
-excerpt: "Data analysis and interactive visualization platform exploring digital marketing performance across FMCG, Beauty, and Fashion industries, featuring dynamic graphs and data-driven storytelling."
+thumbnail: "/images/projects/insight-performance-thumb.png"
+excerpt: "Turning raw digital marketing data into strategic gold— an InSight competition journey."
 featured: true
 contributors:
   - "muhammad-iqbal-rasyid"
@@ -14,7 +14,7 @@ techStack:
   - "Python"
   - "Pandas"
   - "Plotly.js"
-  - "Flask"
+  - "Streamlit"
 links:
   liveApp: "https://marketing-insights-demo.vercel.app"
   github: "https://github.com/iqbalrasyid/marketing-insights"
@@ -22,69 +22,72 @@ tags:
   - "DataAnalysis"
   - "DigitalMarketing"
   - "Python"
-  - "JavaScript"
   - "DataVisualization"
-  - "Storytelling"
-  - "InteractiveDashboard"
+  - "StrategicRecommendation"
+  - "InSight"
+  - "Streamlit"
   - "Pandas"
   - "Plotly"
 sections:
   - type: "overview"
     content: |
-      This competition project involved analyzing digital marketing performance data across multiple clients spanning three major industries: FMCG (Fast-Moving Consumer Goods), Beauty, and Fashion. The goal was to uncover traffic and sales trends over a 12-month period and present actionable insights through an engaging, interactive platform.
+      This project was developed for **InSight**, a prestigious data analytics competition that challenges participants to extract meaningful insights from real-world digital marketing data across multiple industries.
 
-      As the data analyst, I was responsible for the entire analytical pipeline—from data cleaning and exploratory analysis to building a web-based presentation platform featuring dynamic visualizations and narrative-driven insights that tell the story behind the numbers.
+      Our team analyzed performance data spanning FMCG (Fast-Moving Consumer Goods), Beauty, and Fashion industries to uncover critical business patterns, identify optimization opportunities, and deliver actionable strategic recommendations that drive measurable impact.
 
-  - type: "demo"
-    title: "Interactive Dashboard"
-    url: "https://marketing-insights-demo.vercel.app"
+      Beyond just data analysis, we built an interactive analytics platform that transforms complex datasets into clear, compelling visual narratives— empowering stakeholders to make data-driven decisions with confidence.
 
-  - type: "process"
+  - type: "detail"
+    title: "Detail"
     content: |
-      **Data Acquisition & Cleaning**
-      Received raw marketing data from 12 clients across 3 industries, including:
-      - Daily website traffic (sessions, pageviews, bounce rate, avg. session duration)
-      - Conversion funnel metrics (add-to-cart, checkout initiated, purchases)
-      - Ad spend and ROAS (Return on Ad Spend) across channels (Meta, Google, TikTok)
-      - Revenue and order data with product category breakdowns
+      **Competition Context: InSight**
 
-      Data cleaning challenges included handling missing values, standardizing date formats across clients, and reconciling currency differences. Used Python (Pandas) for all preprocessing.
+      InSight is a data analytics competition focused on transforming raw marketing data into strategic business recommendations. Participants are challenged to demonstrate not just technical analysis skills, but also business acumen and storytelling ability.
 
-      **Exploratory Data Analysis**
-      Conducted comprehensive EDA to identify patterns:
-      - Seasonality analysis: Identified peak periods (Ramadan, 11.11, 12.12 sales events)
-      - Channel performance comparison: Meta vs Google vs TikTok effectiveness by industry
-      - Cohort analysis: Customer retention patterns across industries
-      - Correlation studies: Traffic sources vs conversion rates
+      **Problem Statement**
 
-      **Key Findings Development**
-      Synthesized analysis into 5 major insight categories:
-      1. **Seasonal Sensitivity**: Fashion shows 3x higher seasonal variance than FMCG
-      2. **Channel Efficiency**: TikTok emerging as top ROAS channel for Beauty (avg. 4.2x)
-      3. **Traffic Quality**: Organic traffic converts 2.8x better than paid across all industries
-      4. **Mobile Dominance**: 78% of Beauty traffic is mobile, requiring mobile-first strategies
-      5. **Price Sensitivity**: FMCG responds strongly to discount campaigns; Fashion less so
+      Given 12 months of digital marketing performance data across multiple clients and industries, our objectives were to:
+      - Identify key performance trends and anomalies
+      - Uncover cross-industry patterns and differences
+      - Develop actionable recommendations for budget optimization
+      - Present findings in an engaging, accessible format
+
+      **Analytical Approach**
+
+      Our methodology followed a structured framework:
+
+      - **Data Cleaning & Preparation**: Handled missing values, standardized formats, and reconciled currency differences using Python (Pandas)
+      - **Exploratory Data Analysis**: Identified seasonality patterns, channel effectiveness, and conversion funnel bottlenecks
+      - **Statistical Analysis**: Conducted correlation studies between traffic sources and conversion rates
+      - **Visualization Development**: Built interactive charts using Plotly.js for dynamic data exploration
+
+      **Key Insights Discovered**
+
+      - **Seasonal Sensitivity**: Fashion shows 3x higher seasonal variance than FMCG, requiring more agile budget allocation strategies
+      - **Channel Efficiency**: TikTok emerges as top ROAS channel for Beauty industry with average 4.2x return
+      - **Traffic Quality**: Organic traffic converts 2.8x better than paid across all industries
+      - **Mobile Dominance**: 78% of Beauty industry traffic is mobile, demanding mobile-first optimization
+
+      **Strategic Recommendations**
+
+      Based on our analysis, we proposed industry-specific strategies:
+      - **FMCG**: Focus on discount-driven campaigns during low seasons
+      - **Beauty**: Shift budget toward TikTok and prioritize mobile UX optimization  
+      - **Fashion**: Implement dynamic budget reallocation based on seasonal forecasting
 
       **Platform Development**
-      Built an interactive web platform using:
-      - **Backend**: Python Flask for data API endpoints
-      - **Frontend**: Vanilla JavaScript with Plotly.js for interactive charts
-      - **Styling**: Custom CSS with responsive design
-      - **Hosting**: Deployed on Vercel for easy access during competition presentation
 
-  - type: "gallery"
-    images:
-      - src: "/images/projects/marketing-overview.jpg"
-        alt: "Dashboard overview showing industry comparison"
-        caption: "Industry comparison dashboard with key metrics"
-      - src: "/images/projects/marketing-trends.jpg"
-        alt: "Time series visualization of traffic trends"
-        caption: "Interactive time series with drill-down capability"
-      - src: "/images/projects/marketing-channels.jpg"
-        alt: "Channel performance breakdown by industry"
-        caption: "Channel ROAS comparison across industries"
-      - src: "/images/projects/marketing-story.jpg"
-        alt: "Data storytelling section with narrative insights"
-        caption: "Narrative-driven insight presentation"
+      Built an interactive web platform using:
+      - **Backend**: Python with Streamlit for rapid prototyping
+      - **Visualization**: Plotly.js for interactive, drill-down capable charts
+      - **Deployment**: Hosted on Vercel for seamless presentation access
+
+      **Competition Outcome**
+
+      Our solution was recognized for its comprehensive analytical approach and clear strategic recommendations, demonstrating the power of data-driven decision making in digital marketing optimization.
+
+  - type: "wip"
+    title: "Gallery"
+    wipMessage: "Visual documentation of the analysis dashboard and presentation slides coming soon!"
 
 ---

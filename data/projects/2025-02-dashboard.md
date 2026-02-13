@@ -5,7 +5,7 @@ date: "2025-02-15"
 category: "UI/UX & Web"
 project_type: "Client Work"
 thumbnail: "/images/projects/dashboard-thumb.jpg"
-excerpt: "Complete redesign of a B2B analytics platform focusing on data visualization clarity and user workflow optimization."
+excerpt: "Transforming cluttered analytics into clarity— a B2B dashboard redesign story."
 contributors:
   - "muhammad-iqbal-rasyid"
   - "sara-nur"
@@ -32,10 +32,11 @@ sections:
     url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 
   - type: "demo"
-    title: "Live Prototype"
+    title: "Demo App"
     url: "https://analytics-dashboard-demo.vercel.app"
 
-  - type: "process"
+  - type: "detail"
+    title: "Detail"
     content: |
       **Discovery Phase**
       We began with extensive user research including 24 user interviews, session recordings analysis, and heuristic evaluation of the existing interface. Key pain points identified:

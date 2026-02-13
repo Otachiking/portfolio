@@ -5,7 +5,7 @@ date: "2025-12-15"
 category: "Data Analysis & Visualization"
 project_type: "Academic Project"
 thumbnail: "/images/projects/dvd_amazon_thumb.png"
-excerpt: "Social Network Analysis of Amazon's DVD co-purchase patterns using NetworkX, featuring centrality metrics, clustering analysis, and an interactive web-based graph visualization."
+excerpt: "Uncovering hidden purchase patterns through social network analysis— mapping Amazon's DVD web."
 featured: true
 contributors:
   - "muhammad-iqbal-rasyid"
@@ -37,10 +37,11 @@ sections:
       The project applied graph theory concepts including centrality measures, clustering coefficients, and community detection to uncover hidden patterns in product relationships. The findings were presented through an interactive web-based graph simulation that allows users to explore product connections and understand recommendation insights visually.
 
   - type: "demo"
-    title: "Interactive Graph Explorer"
+    title: "Demo App"
     url: "https://ajs-kel6.vercel.app/"
 
-  - type: "process"
+  - type: "detail"
+    title: "Detail"
     content: |
       **Dataset Preparation**
       Started with the Stanford SNAP Amazon Co-Purchasing Network dataset, which contains:

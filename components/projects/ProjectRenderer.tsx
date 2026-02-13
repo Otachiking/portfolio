@@ -2,10 +2,9 @@ import {
   OverviewBlock,
   ImageBlock,
   GalleryBlock,
-  ProcessBlock,
+  DetailBlock,
   VideoBlock,
   DemoBlock,
-  FeaturesBlock,
   WIPBlock,
 } from './blocks';
 import { AccordionSection } from '@/components/ui';
@@ -18,24 +17,22 @@ interface ProjectRendererProps {
 }
 
 // Section configuration for accordion behavior
-// Order: Overview, Interactive App (demo), Features, Video, Process
-// Default open: Overview and Interactive App. If no Interactive App, Video is opened too.
+// Order: Overview, Demo App, Video, Detail
+// Default open: Overview and Demo App. If no Demo App, Video is opened too.
 // Note: Gallery is rendered separately (not in accordion)
 const SECTION_CONFIG: Record<string, { title: string; order: number }> = {
   overview: { title: 'Overview', order: 1 },
-  demo: { title: 'Interactive App', order: 2 },
-  features: { title: 'Features', order: 3 },
-  video: { title: 'Video', order: 4 },
-  process: { title: 'Process', order: 5 },
-  image: { title: 'Image', order: 6 },
-  wip: { title: 'Coming Soon', order: 7 },
+  demo: { title: 'Demo App', order: 2 },
+  video: { title: 'Video', order: 3 },
+  detail: { title: 'Detail', order: 4 },
+  image: { title: 'Image', order: 5 },
+  wip: { title: 'Coming Soon', order: 6 },
 };
 
 function hasContent(section: Section): boolean {
   switch (section.type) {
     case 'overview':
-    case 'process':
-    case 'features':
+    case 'detail':
       return Boolean(section.content?.trim());
     case 'video':
     case 'demo':
@@ -130,8 +127,8 @@ function renderSectionContent(section: Section): React.ReactNode {
     case 'overview':
       return <OverviewBlock content={section.content || ''} />;
 
-    case 'process':
-      return <ProcessBlock content={section.content || ''} />;
+    case 'detail':
+      return <DetailBlock content={section.content || ''} />;
 
     case 'image':
       return (
@@ -147,9 +144,6 @@ function renderSectionContent(section: Section): React.ReactNode {
 
     case 'demo':
       return <DemoBlock url={section.url || ''} title={section.title} />;
-
-    case 'features':
-      return <FeaturesBlock content={section.content || ''} />;
 
     case 'wip':
       return <WIPBlock title={section.title} message={section.wipMessage} />;

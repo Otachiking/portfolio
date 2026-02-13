@@ -5,7 +5,7 @@ date: "2025-03-20"
 category: "UI/UX & Web"
 project_type: "Freelance"
 thumbnail: "/images/projects/ecommerce-thumb.jpg"
-excerpt: "Full-stack rebuild of a fashion e-commerce platform with focus on performance, accessibility, and conversion optimization."
+excerpt: "From sluggish to lightning-fast— rebuilding e-commerce for modern shoppers."
 contributors:
   - "muhammad-iqbal-rasyid"
   - "ahmad-rizki"
@@ -28,7 +28,8 @@ sections:
     content: |
       A ground-up rebuild of a mid-sized fashion retailer's e-commerce platform. The legacy system built on older technology was experiencing performance issues, poor Core Web Vitals scores, and declining conversion rates. Our mission was to create a modern, blazing-fast shopping experience that would improve both user satisfaction and business metrics.
 
-  - type: "process"
+  - type: "detail"
+    title: "Detail"
     content: |
       **Technical Discovery**
       Began with comprehensive audit of the existing platform:

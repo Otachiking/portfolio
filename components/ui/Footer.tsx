@@ -2,11 +2,29 @@
 
 import { useEffect, useState } from 'react';
 
+function formatLastUpdated(isoString: string): string {
+  try {
+    const date = new Date(isoString);
+    return date.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    });
+  } catch {
+    return '';
+  }
+}
+
 export function Footer() {
   const [currentYear, setCurrentYear] = useState(2026);
+  const [lastUpdated, setLastUpdated] = useState('');
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
+    const buildTime = process.env.NEXT_PUBLIC_BUILD_TIME;
+    if (buildTime) {
+      setLastUpdated(formatLastUpdated(buildTime));
+    }
   }, []);
 
   return (
@@ -16,9 +34,15 @@ export function Footer() {
     >
       <div className="container-main min-h-[72px] px-4 py-6">
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-sm text-text/50">
-            © {currentYear} Iqbal&apos;s Portfolio. All rights reserved.
-          </p>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 text-sm text-text/50">
+            <span>© {currentYear} Iqbal&apos;s Portfolio.</span>
+            {lastUpdated && (
+              <>
+                <span className="hidden sm:inline">|</span>
+                <span className="text-text/40">Last updated: {lastUpdated}</span>
+              </>
+            )}
+          </div>
           <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-4">
             <a
               href="mailto:otachiking123@gmail.com"
