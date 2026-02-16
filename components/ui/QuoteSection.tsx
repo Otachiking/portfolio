@@ -19,7 +19,7 @@ interface QuoteSectionProps {
  * Calculate display duration based on quote length
  */
 function calculateDuration(text: string): number {
-  const baseDuration = 2000;
+  const baseDuration = 3000;
   const msPerCharacter = 25;
   const maxDuration = 8000;
   

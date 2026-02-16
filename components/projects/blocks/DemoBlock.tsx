@@ -34,7 +34,7 @@ export function DemoBlock({ url, title = 'Live Demo' }: DemoBlockProps) {
 
   return (
     <div className="space-y-4">
-      <div className="relative aspect-[4/3] w-full overflow-hidden border border-text/10 bg-text/5">
+      <div className="relative aspect-video w-full overflow-hidden border border-text/10 bg-text/5">
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="h-8 w-8 animate-spin border-2 border-text/20 border-t-primary" />

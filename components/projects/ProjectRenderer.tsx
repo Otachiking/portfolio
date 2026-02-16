@@ -94,8 +94,11 @@ export function ProjectRenderer({ sections, project, contributors }: ProjectRend
           const variant = accordionIndex % 2 === 0 ? 'primary' : 'secondary';
           accordionIndex++;
 
-          // Use section.title if provided (e.g., "Video"), otherwise use config title
-          const displayTitle = section.title || config.title;
+          const displayTitle = section.type === 'demo'
+            ? 'Demo App'
+            : section.type === 'detail'
+              ? 'Detail'
+              : section.title || config.title;
 
           return (
             <AccordionSection
@@ -115,7 +118,7 @@ export function ProjectRenderer({ sections, project, contributors }: ProjectRend
         <GalleryBlock 
           key={`gallery-${index}`}
           images={section.images || []} 
-          title={section.title || 'Gallery'}
+          title="Gallery"
         />
       ))}
     </div>

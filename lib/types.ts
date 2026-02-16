@@ -67,3 +67,11 @@ export interface Quote {
   source: string;
   context?: string;
 }
+
+export interface Certificate {
+  id: string;
+  title: string;
+  image: string;
+  issuer?: string;
+  verifyUrl?: string;
+}

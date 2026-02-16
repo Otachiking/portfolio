@@ -1,11 +1,12 @@
 import Link from 'next/link';
-import { CardProject } from '@/components/ui';
+import { CardProject, CertificatesSection } from '@/components/ui';
 import { HeroSection } from '@/components/hero';
-import { getBestProjects, getContributors } from '@/lib';
+import { getBestProjects, getContributors, getCertificates } from '@/lib';
 
 export default function HomePage() {
-  const projects = getBestProjects(3);
+  const projects = getBestProjects(6);
   const contributors = getContributors();
+  const certificates = getCertificates();
 
   return (
     <>
@@ -24,7 +25,7 @@ export default function HomePage() {
                 Featured
               </p>
               <h2 id="featured-heading" className="heading-2">
-                Best Works
+                Selected Works
               </h2>
             </div>
             <Link
@@ -128,6 +129,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <CertificatesSection certificates={certificates} />
 
       {/* CTA Section */}
       <section

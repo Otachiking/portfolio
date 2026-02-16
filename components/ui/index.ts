@@ -6,3 +6,4 @@ export { DarkModeToggle } from './DarkModeToggle';
 export { CardProject } from './CardProject';
 export { QuoteSection } from './QuoteSection';
 export { AccordionSection } from './AccordionSection';
+export { CertificatesSection } from './CertificatesSection';

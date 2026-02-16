@@ -1,0 +1,28 @@
+[
+  {
+    "id": "comptia-security-plus",
+    "title": "CompTIA Security+",
+    "issuer": "CompTIA",
+    "image": "/images/certificates/comptia-security-plus.png",
+    "verifyUrl": "/docs/certificates/comptia-security-plus-certificate.pdf"
+  },
+  {
+    "id": "microsoft-ai-900",
+    "title": "Microsoft AI-900",
+    "issuer": "Microsoft",
+    "image": "/images/certificates/microsoft-ai-900-badge.png",
+    "verifyUrl": "/docs/certificates/microsoft-ai-900-certificate.pdf"
+  },
+  {
+    "id": "ibm-data-classification",
+    "title": "IBM Data Classification and Summarization",
+    "issuer": "IBM",
+    "image": "/images/certificates/ibm-data-classification-summarization-badge.png"
+  },
+  {
+    "id": "ibm-code-generation",
+    "title": "IBM Code Generation and Optimization",
+    "issuer": "IBM",
+    "image": "/images/certificates/ibm-code-generation-optimization-badge.png"
+  }
+]
