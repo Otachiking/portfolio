@@ -44,9 +44,9 @@ sections:
   - type: "detail"
     title: "Detail"
     content: |
-    1. PROBLEM
-    2. FEATURES
-    3. TECHNICAL
+      1. PROBLEM
+      2. FEATURES
+      3. TECHNICAL
       **Architecture & Inference Strategy**
       RAG Chat uses a hybrid runtime pipeline with two answer modes: direct Gemini completion for general chat, and retrieval-augmented generation for document-specific questions. Importantly, this app directly calls the Gemini FREE API and does **not** perform model training, fine-tuning, or continual learning. In your terms, your understanding is correct: the RAG process here works by retrieving relevant chunks from ChromaDB and forwarding them as grounded prompt context for Gemini to reason over.
 
