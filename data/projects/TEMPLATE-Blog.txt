@@ -1,6 +1,5 @@
 ---
 title: "RAG Chat: Instant Document Intelligence with Gemini"
-slug: "rag-chat-gemini-chromadb"
 date: "2026-02-16"
 category: "AI & Machine Learning"
 project_type: "Personal Project"
@@ -44,16 +43,21 @@ sections:
   - type: "detail"
     title: "Detail"
     content: |
-      1. PROBLEM
-      2. FEATURES
-      3. TECHNICAL
-      **Architecture & Inference Strategy**
-      RAG Chat uses a hybrid runtime pipeline with two answer modes: direct Gemini completion for general chat, and retrieval-augmented generation for document-specific questions. Importantly, this app directly calls the Gemini FREE API and does **not** perform model training, fine-tuning, or continual learning. In your terms, your understanding is correct: the RAG process here works by retrieving relevant chunks from ChromaDB and forwarding them as grounded prompt context for Gemini to reason over.
+    1. PROBLEM
+    2. FEATURES
+    3. TECHNICAL
 
-      **Document Processing Pipeline**
-      Once a user uploads a document, the backend performs extraction, chunking, embedding, and vector indexing, then binds those vectors to the current conversation context. During response generation, the retriever selects top-matching chunks, injects them into the prompt, and returns an answer with source attributions and page cues. This design keeps inference transparent, reduces hallucination risk, and gives users confidence through traceable evidence.
-
-      **Feature Highlights (12)**
-      1) Multi-thread conversations, 2) hybrid chat/RAG mode switching, 3) drag-and-drop upload, 4) document parsing for PDFs and images, 5) source citations with page references, 6) dedicated sources panel, 7) preview modal for source inspection, 8) responsive mobile-first UI, 9) graceful error handling and retries, 10) loading and status feedback states, 11) clean conversation history UX, and 12) one-click deployment flow to Vercel for fast shipping.
+  - type: "gallery"
+    title: "Gallery"
+    images:
+      - src: "/images/projects/pantau_uang/pantau-uang-dashboard-overview.png"
+        alt: "Pantau Uang main dashboard showing KPIs and budget overview"
+        caption: "Dashboard utama dengan KPI dan overview anggaran"
+      - src: "/images/projects/pantau_uang/pantau-uang-budget-breakdown.png"
+        alt: "Budget breakdown visualization by category"
+        caption: "Breakdown anggaran per kategori"
+      - src: "/images/projects/pantau_uang/pantau-uang-filters.png"
+        alt: "Filter options for period and category selection"
+        caption: "Filter periode dan kategori"
 
 ---
