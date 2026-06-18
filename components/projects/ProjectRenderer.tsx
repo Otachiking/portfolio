@@ -6,6 +6,7 @@ import {
   VideoBlock,
   DemoBlock,
   WIPBlock,
+  SlideBlock,
 } from './blocks';
 import { AccordionSection } from '@/components/ui';
 import type { Section, Project, Contributor } from '@/lib/types';
@@ -22,11 +23,12 @@ interface ProjectRendererProps {
 // Note: Gallery is rendered separately (not in accordion)
 const SECTION_CONFIG: Record<string, { title: string; order: number }> = {
   overview: { title: 'Overview', order: 1 },
-  demo: { title: 'Demo App', order: 2 },
+  demo: { title: 'Live Demo', order: 2 },
   video: { title: 'Video', order: 3 },
-  detail: { title: 'Detail', order: 4 },
-  image: { title: 'Image', order: 5 },
-  wip: { title: 'Coming Soon', order: 6 },
+  slide: { title: 'Slide', order: 4 },
+  detail: { title: 'Detail', order: 5 },
+  image: { title: 'Image', order: 6 },
+  wip: { title: 'Coming Soon', order: 7 },
 };
 
 function hasContent(section: Section): boolean {
@@ -36,6 +38,7 @@ function hasContent(section: Section): boolean {
       return Boolean(section.content?.trim());
     case 'video':
     case 'demo':
+    case 'slide':
       return Boolean(section.url?.trim());
     case 'image':
       return Boolean(section.src?.trim());
@@ -71,7 +74,8 @@ export function ProjectRenderer({ sections, project, contributors }: ProjectRend
   const getDefaultOpen = (sectionType: string): boolean => {
     if (sectionType === 'overview') return true;
     if (sectionType === 'demo') return true;
-    if (sectionType === 'video' && !hasDemo) return true;
+    if (sectionType === 'video') return true;
+    if (sectionType === 'slide') return true;
     return false;
   };
 
@@ -95,10 +99,12 @@ export function ProjectRenderer({ sections, project, contributors }: ProjectRend
           accordionIndex++;
 
           const displayTitle = section.type === 'demo'
-            ? 'Demo App'
-            : section.type === 'detail'
-              ? 'Detail'
-              : section.title || config.title;
+            ? 'Live Demo'
+            : section.type === 'slide'
+              ? (section.title || 'Slide')
+              : section.type === 'detail'
+                ? 'Detail'
+                : section.title || config.title;
 
           return (
             <AccordionSection
@@ -147,6 +153,9 @@ function renderSectionContent(section: Section): React.ReactNode {
 
     case 'demo':
       return <DemoBlock url={section.url || ''} title={section.title} />;
+
+    case 'slide':
+      return <SlideBlock url={section.url || ''} title={section.title} />;
 
     case 'wip':
       return <WIPBlock title={section.title} message={section.wipMessage} />;

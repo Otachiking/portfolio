@@ -1,11 +1,11 @@
 ---
 title: "DVD Amazon Co-Purchases Network Analysis"
-slug: "amazon-network-analysis"
+slug: "dvd-amazon-network-analysis"
 date: "2025-12-15"
 category: "Data Analysis & Visualization"
 project_type: "Academic Project"
 thumbnail: "/images/projects/dvd_amazon_thumb.png"
-excerpt: "Uncovering hidden purchase patterns through social network analysis— mapping Amazon's DVD web."
+excerpt: "Uncovers hidden purchase patterns through social network analysis at Amazon's DVD co-purchases."
 featured: true
 contributors:
   - "muhammad-iqbal-rasyid"

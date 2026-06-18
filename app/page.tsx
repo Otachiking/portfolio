@@ -43,7 +43,7 @@ export default function HomePage() {
           </div>
 
           <div
-            className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
             role="list"
             aria-label="Featured projects"
           >
@@ -146,7 +146,7 @@ export default function HomePage() {
             to be part of your vision.
           </p>
           <a
-            href="mailto:hello@example.com"
+            href="mailto:otachiking123@gmail.com"
             className="inline-flex items-center justify-center border-2 border-primary bg-primary px-8 py-3 font-semibold text-white transition-colors hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             Get in Touch

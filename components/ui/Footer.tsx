@@ -5,11 +5,9 @@ import { useEffect, useState } from 'react';
 function formatLastUpdated(isoString: string): string {
   try {
     const date = new Date(isoString);
-    return date.toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-    });
+    const month = date.toLocaleDateString('en-US', { month: 'short' });
+    const year = String(date.getFullYear()).slice(-2);
+    return `${month} '${year}`;
   } catch {
     return '';
   }

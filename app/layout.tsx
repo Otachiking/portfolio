@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     'A design-forward portfolio showcasing work at the intersection of technology and creativity. UI/UX, ML/AI, and Web Development projects.',
   keywords: ['portfolio', 'design', 'development', 'UI/UX', 'machine learning', 'web development'],
   authors: [{ name: 'Portfolio' }],
+  icons: {
+    icon: '/images/figure/otachiking.png',
+    shortcut: '/images/figure/otachiking.png',
+    apple: '/images/figure/otachiking.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',

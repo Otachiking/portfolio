@@ -186,7 +186,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       href={project.links.source || project.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex flex-col items-center justify-center gap-1 min-h-[44px] px-3 py-2 text-sm font-medium text-white bg-dark-grey hover:bg-dark-grey/80 transition-colors sm:flex-row-reverse sm:min-h-0 sm:py-1.5 sm:gap-1.5"
+                      className="flex flex-col items-center justify-center gap-1 min-h-[44px] px-3 py-2 text-sm font-medium text-white bg-[#787882] hover:bg-[#787882]/80 transition-colors sm:flex-row-reverse sm:min-h-0 sm:py-1.5 sm:gap-1.5"
                     >
                       <span className="material-icons" style={{ fontSize: '20px' }}>folder</span>
                       <span>Source</span>

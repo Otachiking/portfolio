@@ -28,20 +28,6 @@
     "context": "S1:E5"
   },
   {
-    "id": "q-mary-oliver-1",
-    "text": "As long as you dancing, you can break the rules. Sometimes breaking the rules mean extending the rules. Sometimes, there are no rules.",
-    "author": "Mary Oliver",
-    "source": "Poetry",
-    "context": "Essay / Poem"
-  },
-  {
-    "id": "q-problem-solving",
-    "text": "If you can’t explain it simply, you don’t understand it well enough.",
-    "author": "Albert Einstein",
-    "source": "Attributed Quote",
-    "context": ""
-  },
-  {
     "id": "q-learning",
     "text": "The best way to predict the future is to build it.",
     "author": "Alan Kay",

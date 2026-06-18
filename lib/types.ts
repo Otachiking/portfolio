@@ -17,7 +17,7 @@ export interface GalleryImage {
 }
 
 export interface Section {
-  type: 'overview' | 'demo' | 'video' | 'detail' | 'gallery' | 'wip' | 'image';
+  type: 'overview' | 'demo' | 'video' | 'detail' | 'gallery' | 'wip' | 'image' | 'slide';
   title?: string;
   content?: string;
   src?: string;

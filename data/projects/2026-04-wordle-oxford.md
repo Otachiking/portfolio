@@ -5,10 +5,10 @@ date: "2026-04-25"
 category: "Data Analysis & Visualization"
 project_type: "Personal Project"
 thumbnail: "/images/projects/wordle-oxford-thumbnail.png"
-excerpt: "A high-performance Wordle clone powered by the Oxford 3000-5000 vocabulary to help you master CEFR levels A1-C1."
+excerpt: "A Wordle using Oxford 3000-5000 vocabulary to help you master CEFR levels A1-C1."
 featured: true
 contributors:
-  - "otachiking"
+  - "muhammad-iqbal-rasyid"
 techStack:
   - "React"
   - "Vite"

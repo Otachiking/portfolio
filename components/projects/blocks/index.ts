@@ -5,3 +5,4 @@ export { DetailBlock } from './DetailBlock';
 export { VideoBlock } from './VideoBlock';
 export { DemoBlock } from './DemoBlock';
 export { WIPBlock } from './WIPBlock';
+export { SlideBlock } from './SlideBlock';
