@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/projects/scanora/",
+      "destination": "https://youtu.be/X7TOxLid65k",
+      "permanent": false
+    },
+    {
+      "source": "/projects/scanora",
+      "destination": "https://youtu.be/X7TOxLid65k",
+      "permanent": false
+    }
+  ]
+}
