@@ -9,6 +9,16 @@
       "source": "/projects/scanora",
       "destination": "https://youtu.be/X7TOxLid65k",
       "permanent": false
+    },
+    {
+      "source": "/projects/spill-the-bill/",
+      "destination": "https://spillthebill.vercel.app/",
+      "permanent": false
+    },
+    {
+      "source": "/projects/spill-the-bill",
+      "destination": "https://spillthebill.vercel.app/",
+      "permanent": false
     }
   ]
 }
