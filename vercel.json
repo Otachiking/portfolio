@@ -19,6 +19,16 @@
       "source": "/projects/spill-the-bill",
       "destination": "https://spillthebill.vercel.app/",
       "permanent": false
+    },
+    {
+      "source": "/iqbalexpenses",
+      "destination": "/IqbalExpenses/",
+      "permanent": false
+    },
+    {
+      "source": "/iqbalexpenses/",
+      "destination": "/IqbalExpenses/",
+      "permanent": false
     }
   ]
 }
